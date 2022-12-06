@@ -1,6 +1,5 @@
 <template>
   <div>
-    Placeholder
     <admin-profile v-if="$store.getters.role == 'ROLE_ADMIN'"/>
     <landlord-profile v-if="$store.getters.role == 'ROLE_LANDLORD'"/>
     <user-profile v-if="$store.getters.role == 'ROLE_USER'"/>

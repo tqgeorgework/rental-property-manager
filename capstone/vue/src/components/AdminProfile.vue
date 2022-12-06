@@ -1,5 +1,5 @@
 <template>
-  <div>Placeholder {{this.$store.getters.role}}</div>
+  <div>Placeholder {{$store.getters.role}}</div>
 </template>
 
 <script>
