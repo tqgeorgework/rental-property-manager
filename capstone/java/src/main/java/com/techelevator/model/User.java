@@ -16,12 +16,21 @@ public class User {
    private boolean activated;
    private Set<Authority> authorities = new HashSet<>();
 
+
+
+   private String name;
+
    public User() { }
 
    public User(int id, String username, String password, String authorities) {
+      this(id, username, password, authorities, "");
+   }
+
+   public User(int id, String username, String password, String authorities, String name) {
       this.id = id;
       this.username = username;
       this.password = password;
+      this.name = name;
       if(authorities != null) this.setAuthorities(authorities);
       this.activated = true;
    }
@@ -64,6 +73,14 @@ public class User {
 
    public void setAuthorities(Set<Authority> authorities) {
       this.authorities = authorities;
+   }
+
+   public String getName() {
+      return name;
+   }
+
+   public void setName(String name) {
+      this.name = name;
    }
 
    public void setAuthorities(String authorities) {
