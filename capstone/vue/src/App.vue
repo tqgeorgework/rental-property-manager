@@ -1,12 +1,16 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <nav>
+      <div id="top">
       <top-bar/>
+      </div>
+      <div id="view">
       <router-view/>
+      </div>
+      <div id="foot">
       <bottom-bar/>
-      <!-- <router-link :to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
-      <router-link :to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link> -->
-    </div>
+      </div>
+    </nav>
   </div>
 </template>
 
@@ -19,3 +23,15 @@ export default {
   }
 }
 </script>
+<style>
+#app {
+  display: grid;
+  grid-template-areas:
+  "top"
+  "view"
+  "foot";
+}
+#view {
+  margin-top: 140px;
+}
+</style>
