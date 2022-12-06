@@ -9,6 +9,7 @@ public class Property {
     private String picURL;
     private int sqFootage;
     private String description;
+    private int landlordID;
 
     public Property() {}
 
@@ -87,5 +88,5 @@ public class Property {
         this.landlordID = landlordID;
     }
 
-    private int landlordID;
+
 }
