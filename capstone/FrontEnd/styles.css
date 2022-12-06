@@ -1,0 +1,132 @@
+* {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: rgb(0, 0, 0);
+}
+
+#page-header:nth-child(1),
+a#page-header:nth-child(4) {
+  flex-grow: 2;
+}
+#page-header:nth-child(2),
+#page-header:nth-child(3) {
+  flex-grow: 1;
+}
+
+#page-header {
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2);
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+  width: 100%;
+  flex-wrap: wrap;
+  grid-area: header;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: fixed;
+  background-color: white;
+}
+
+#site-name {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+ font-size: 300%;
+}
+
+#left-panel > p> a {
+  width: 100%;
+  
+}
+
+#left-panel {
+  display: grid;
+  font-size: 45pt;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+  color: rgb(35, 97, 155);
+  grid-area: left-panel;
+  width: 50%;
+  margin-left: 25%;
+  text-align: center;
+  margin-top: 100px;
+  
+}
+
+.container {
+  flex-wrap: wrap;
+  padding:40px;
+ 
+}
+
+
+main {
+  grid-area: main;
+  margin-top: 100px;
+}
+
+#footer {
+  grid-area: footer;
+}
+
+
+div.container {
+  display: grid;
+  flex-direction: row;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  grid-template-areas:
+
+    
+    "left-panel left-panel main"
+    "footer footer footer"
+    ;
+}
+
+
+#page-header img {
+  height: 90px;
+  margin-top: 10px;
+}
+
+#page-header nav ul {
+  padding-left: 0;
+}
+#page-header nav li {
+  list-style-type: none;
+  display: inline;
+}
+#page-header nav li:not(:first-child):before {
+  content: " ";
+  padding-right: 15px;
+}
+#page-header nav li a {
+  text-decoration: none;
+}
+#page-header nav li a:hover {
+  text-decoration: underline;
+}
+
+#footer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+ justify-content: space-between;
+ text-align: center;
+  padding: 5px;
+  
+
+}
+
+#footer > div > h2 >i {
+  margin: 10px;
+  color: rgb(214, 178, 16);
+}
