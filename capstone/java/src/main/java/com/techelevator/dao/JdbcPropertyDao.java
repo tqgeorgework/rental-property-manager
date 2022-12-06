@@ -4,10 +4,12 @@ import com.techelevator.model.Property;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class JdbcPropertyDao implements PropertyDao {
 
     private final JdbcTemplate jdbcTemplate;

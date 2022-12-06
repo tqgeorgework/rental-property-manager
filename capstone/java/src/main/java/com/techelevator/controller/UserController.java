@@ -22,10 +22,10 @@ public class UserController {
     private UserDao userDao;
 
 
-//    public List<User> getAllUsers(UserDao userDao) {
-//        return userDao.findAll();
-//
-//    }
+    public List<User> getAllUsers(UserDao userDao) {
+        return userDao.findAll();
+
+    }
 
 
 
