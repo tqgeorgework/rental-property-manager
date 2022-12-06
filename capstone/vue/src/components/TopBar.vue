@@ -2,7 +2,7 @@
   <header id="page-header">
     <nav>
     <router-link :to="{ name: 'profile' }">Profile</router-link>
-    <router-link :to="{ name: 'login' }" v-if="$store.state.token == ''">Login/Register</router-link>
+    <router-link :to="{ name: 'login' }" v-if="$store.state.token == ''">Login / Register</router-link>
     <router-link :to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
     <router-link :to="{ name: 'listings' }">Browse Listings</router-link>
     <router-link :to="{ name: 'maintenance' }" v-if="$store.state.token != ''">Maintenance</router-link>
@@ -28,8 +28,16 @@ export default {};
 
 <style>
 
+/* TODO */
+/* Fix CSS and make design responsive for wrapping etc. */
+
 a {
   color: rgb(0, 0, 0);
+
+}
+
+#site-name {
+  font-size: 52px;
 }
 
 #page-header:nth-child(1),
@@ -42,13 +50,14 @@ a#page-header:nth-child(4) {
 }
 
 #page-header {
-  color: rgb(0, 0, 0);
+  color: rgb(112, 21, 21);
   box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2);
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
   margin-bottom: 5px;
   width: 100%;
+  height: 15%;
   flex-wrap: wrap;
   grid-area: header;
   display: flex;
@@ -56,9 +65,11 @@ a#page-header:nth-child(4) {
   align-items: center;
   position: fixed;
   background-color: white;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
 }
 #page-header img {
-  height: 90px;
+  height: 140px;
   margin-top: 10px;
 }
 
@@ -75,6 +86,7 @@ a#page-header:nth-child(4) {
 }
 #page-header nav a {
   text-decoration: none;
+  font-size: 20px;
 }
 #page-header nav a:hover {
   text-decoration: underline;
