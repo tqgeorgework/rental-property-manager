@@ -16,10 +16,11 @@
 
 <script>
 import TopBar from "./components/TopBar.vue";
+import BottomBar from "./components/BottomBar.vue";
 
 export default {
   components: {
-    TopBar,
+    TopBar, BottomBar
   }
 }
 </script>

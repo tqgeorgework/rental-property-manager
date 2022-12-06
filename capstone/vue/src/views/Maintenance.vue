@@ -1,6 +1,6 @@
 vue<template>
   <div>
-    Placeholder
+    Placeholder Maintence Page
   </div>
 </template>
 
