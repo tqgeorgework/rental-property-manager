@@ -50,7 +50,7 @@ public class JdbcUserDao implements UserDao {
     @Override
     public List<User> findAll() {
         List<User> users = new ArrayList<>();
-        String sql = "select * from users";
+        String sql = "select * from users;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while (results.next()) {
@@ -81,6 +81,7 @@ public class JdbcUserDao implements UserDao {
 
         return jdbcTemplate.update(insertUserSql, username, password_hash, ssRole) == 1;
     }
+
 
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();

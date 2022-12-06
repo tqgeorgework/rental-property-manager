@@ -20,7 +20,7 @@ public class JdbcPropertyDao implements PropertyDao {
     @Override
     public  List<Property> getAllProperties() {
         List<Property> properties = new ArrayList<>();
-        String sql = "select * from property";
+        String sql = "SELECT * FROM property";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while (results.next()){
@@ -32,7 +32,7 @@ public class JdbcPropertyDao implements PropertyDao {
     @Override
     public Property getPropertyByID(int ID){
 
-        String sql = "select property_id, address, price, bedrooms, bathrooms, pic_url, sq_footage, description, landlord_id FROM property WHERE property_id = ?;";
+        String sql = "SELECT property_id, address, price, bedrooms, bathrooms, pic_url, sq_footage, description, landlord_id FROM property WHERE property_id = ?;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, ID);
 
