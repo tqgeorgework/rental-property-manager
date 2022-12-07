@@ -25,32 +25,25 @@
       </div>
       <div>
         <label>Pic URL:</label>
-        <input type="url" v-model="$store.state.newProperty.pic_url" />
+        <input type="url" v-model="$store.state.newProperty.picURL" />
       </div>
       <div>
         <label>SQ Footage:</label>
-        <input type="number" v-model="$store.state.newProperty.sq_footage" />
+        <input type="number" v-model="$store.state.newProperty.sqFootage" />
       </div>
       <div>
         <label>Description:</label>
         <input type="text" v-model="$store.state.newProperty.description" />
       </div>
       <div>
-<<<<<<< HEAD
         <input type="submit" value="Save"/>
         <input v-on:click="resetForm" type="button" value="Cancel"/>
-=======
-        <input type="submit" value="save" />
-        <input v-on:click="resetForm" type="button" value="cancel" />
->>>>>>> 1c1438843af49170b9470f7f4cebc5154d063da3
       </div>
     </form>
   </div>
 </template>
 
 <script>
-<<<<<<< HEAD
-import PropertyService from '../services/PropertyService'
 export default {
 name: 'landlord-profile',
 data(){
@@ -60,7 +53,7 @@ return{
 },
 methods: {
 addProperty(){
-  this.$store.state.newProperty.landlord_id = this.$store.state.user.landlord_id;
+  this.$store.state.newProperty.landlord_ID = this.$store.state.user.landlord_ID;
   this.$store.commit("ADD_PROPERTY", this.$store.state.newProperty);
   this.resetForm();
 },
@@ -69,35 +62,8 @@ resetForm(){
   this.$store.state.newProperty = {};
 }
 },
-created() {
-  PropertyService.properties().then(response => {
-    this.$store.state.properties=response.data;
-  })
-}
 }
 
-=======
-export default {
-  name: "landlord-profile",
-  data() {
-    return {
-      showForm: false,
-    };
-  },
-  methods: {
-    addProperty() {
-      this.$store.state.newProperty.landlord_id =
-        this.$store.state.user.landlord_id;
-      this.$store.commit("ADD_PROPERTY", this.$store.state.newProperty);
-      this.resetForm();
-    },
-    resetForm() {
-      this.showForm = false;
-      this.$store.state.newProperty = {};
-    },
-  },
-};
->>>>>>> 1c1438843af49170b9470f7f4cebc5154d063da3
 </script>
 
 <style>

@@ -3,7 +3,7 @@
         <div class="property-card" v-for="property in $store.state.properties" :key="property.property_ID">
             <img :src="property.picURL"/>
             <div>{{property.address}}</div>
-            <div>{{property.price}}</div>
+            <div>${{property.price}}</div>
             <div>{{property.bedrooms}} Bed </div>
             <div>{{property.bathrooms}} Bath </div>
             <div>{{property.sqFootage}} Sq. Ft.</div>
