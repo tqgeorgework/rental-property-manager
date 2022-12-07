@@ -5,11 +5,11 @@ export default {
        return axios.get('/properties') 
     },
     property(ID) {
-        return axios.get(`/property/${ID}`)
+        return axios.get(`/properties/${ID}`)
     },
     
-    addProperty() {
-        return axios.post('/profile')
+    addProperty(property) {
+        return axios.post('/properties/profile', property)
     },
     // getPropertyByLandlordId(ID) {
     //     return axios.get('/profile/')

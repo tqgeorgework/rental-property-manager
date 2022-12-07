@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,10 +14,12 @@ import java.util.List;
 public class JdbcPropertyDao implements PropertyDao {
 
     private final JdbcTemplate jdbcTemplate;
+    private final UserDao userDao;
 
 
-    public JdbcPropertyDao(JdbcTemplate jdbcTemplate) {
+    public JdbcPropertyDao(JdbcTemplate jdbcTemplate, UserDao userDao) {
         this.jdbcTemplate = jdbcTemplate;
+        this.userDao = userDao;
     }
 
     @Override
@@ -44,17 +47,24 @@ public class JdbcPropertyDao implements PropertyDao {
     }
 
     @Override
-    public Property createProperty(Property property){
+    public Property createProperty(Property property, Principal principal){
         String sql = "INSERT INTO property (address, price, bedrooms, bathrooms, pic_url, sq_footage, description, landlord_id) VALUES (?,?,?,?,?,?,?,?) RETURNING property_id;";
         Integer newPropertyID;
         Property newProperty;
 
+        int userID = userDao.findIdByUsername(principal.getName());
+        property.setLandlordID(userID);
+
+
         try{
-            newPropertyID = jdbcTemplate.queryForObject(sql, Integer.class, property.getAddress(), property.getBathrooms(), property.getBedrooms(), property.getPicURL(), property.getSqFootage(), property.getDescription(), property.getLandlordID());
+            newPropertyID = jdbcTemplate.queryForObject(sql, Integer.class, property.getAddress(), property.getPrice(),
+                    property.getBedrooms(), property.getBathrooms(), property.getPicURL(), property.getSqFootage(), property.getDescription(), property.getLandlordID());
 
             newProperty = getPropertyByID(newPropertyID);
 
-        }catch (DataAccessException e){
+        }catch (DataAccessException e) {
+            System.err.println("Error posting to the database." + e.getMessage());
+            e.printStackTrace();
             return null;
         }
         return newProperty;

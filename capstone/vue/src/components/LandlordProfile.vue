@@ -44,6 +44,8 @@
 </template>
 
 <script>
+import PropertyService from "../services/PropertyService";
+
 export default {
 name: 'landlord-profile',
 data(){
@@ -53,8 +55,13 @@ return{
 },
 methods: {
 addProperty(){
-  this.$store.state.newProperty.landlord_ID = this.$store.state.user.landlord_ID;
-  this.$store.commit("ADD_PROPERTY", this.$store.state.newProperty);
+  let newProperty = this.$store.state.newProperty;
+
+  PropertyService.addProperty(newProperty).then(response => {
+        if (response.status === 200) {
+          this.$store.commit("ADD_PROPERTY", newProperty);
+        }
+      })
   this.resetForm();
 },
 resetForm(){

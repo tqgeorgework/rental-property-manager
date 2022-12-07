@@ -28,8 +28,6 @@ created() {
 #property-card-container {
     display: grid;
     grid-template-areas:
-    "property property property"
-    "property property property"
     "property property property";
     gap: 10px;
 }

@@ -44,13 +44,14 @@ public class PropertyController {
         }
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+
+    @PreAuthorize("hasAnyRole('LANDLORD', 'ADMIN')")
     @PostMapping(path = "/profile")
-    public Property createProperty(@RequestBody Property property) {
-        return propertyDao.createProperty(property);
+    public Property createProperty(@RequestBody Property property, Principal principal) {
+
+        return propertyDao.createProperty(property, principal);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping(path = "/profile")
     public List<Property> getPropertiesByLandlordID(@PathVariable int ID, Principal principal) {
         return propertyDao.getPropertiesByLandlordID(ID);
