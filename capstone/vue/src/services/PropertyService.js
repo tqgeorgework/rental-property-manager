@@ -9,10 +9,10 @@ export default {
     },
     
     addProperty(property) {
-        return axios.post('/properties/profile', property)
+        return axios.post('/properties/add', property)
     },
-    // getPropertyByLandlordId(ID) {
-    //     return axios.get('/profile/')
-    // }
+    getOwnProperties() {
+        return axios.get('/properties/own')
+    }
 
 }

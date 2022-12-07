@@ -70,8 +70,9 @@ public class JdbcPropertyDao implements PropertyDao {
         return newProperty;
     }
 
-    public List<Property> getPropertiesByLandlordID(int landlordID){
+    public List<Property> getPropertiesByPrincipal(Principal principal){
          List<Property> properties = new ArrayList<>();
+         int landlordID = userDao.findIdByUsername(principal.getName());
          String sql = "SELECT property_id, address, price, bedrooms, bathrooms, pic_url, sq_footage, description FROM property WHERE landlord_id = ?;";
 
          SqlRowSet results = jdbcTemplate.queryForRowSet(sql, landlordID);

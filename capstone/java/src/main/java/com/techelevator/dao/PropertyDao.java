@@ -10,5 +10,5 @@ public interface PropertyDao {
     List<Property> getAllProperties();
     Property getPropertyByID(int ID);
     Property createProperty(Property property, Principal principal);
-    List<Property> getPropertiesByLandlordID(int landlordID);
+    List<Property> getPropertiesByPrincipal(Principal principal);
 }
