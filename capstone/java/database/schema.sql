@@ -16,12 +16,14 @@ CREATE TABLE property (
 	property_id SERIAL,
 	address varchar(100) NOT NULL,
 	price numeric(12, 2) NOT NULL,
+	--change numeric to money and update on the backend
 	bedrooms int NOT NULL,
 	bathrooms numeric (2, 1) NOT NULL,
 	pic_url varchar(250),
 	sq_footage int NOT NULL,
 	description varchar(1000),
 	landlord_id int NOT NULL,
+	--maybe add boolean for isRented?
 	CONSTRAINT PK_property PRIMARY KEY (property_id),
 	CONSTRAINT FK_landlord_id_to_user_id FOREIGN KEY (landlord_id) REFERENCES users (user_id),
 	CONSTRAINT CK_price CHECK (price > 0),
@@ -31,4 +33,4 @@ CREATE TABLE property (
 	
 );
 
-COMMIT;
+COMMIT TRANSACTION;
