@@ -31,8 +31,8 @@
         <input type="text" v-model="$store.state.newProperty.description"/>
       </div>
       <div>
-        <input type="submit" value="save"/>
-        <input v-on:click="resetForm" type="button" value="cancel"/>
+        <input type="submit" value="Save"/>
+        <input v-on:click="resetForm" type="button" value="Cancel"/>
       </div>
     </form>
 
@@ -40,7 +40,7 @@
 </template>
 
 <script>
-
+import PropertyService from '../services/PropertyService'
 export default {
 name: 'landlord-profile',
 data(){
@@ -58,6 +58,11 @@ resetForm(){
   this.showForm = false;
   this.$store.state.newProperty = {};
 }
+},
+created() {
+  PropertyService.properties().then(response => {
+    this.$store.state.properties=response.data;
+  })
 }
 }
 
