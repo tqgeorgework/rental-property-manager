@@ -56,7 +56,7 @@ addProperty(){
 },
 resetForm(){
   this.showForm = false;
-  this.newProperty = {};
+  this.$store.state.newProperty = {};
 }
 }
 }
