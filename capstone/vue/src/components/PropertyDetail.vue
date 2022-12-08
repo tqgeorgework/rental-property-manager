@@ -54,6 +54,7 @@ div {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 img {
   width: 100vh;

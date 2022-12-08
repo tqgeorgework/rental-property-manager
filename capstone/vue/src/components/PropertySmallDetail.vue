@@ -1,12 +1,9 @@
 <template>
   <div>
-      <router-link :to="{name:'detailed-view', params:{propertyID: property.propertyID}}">
+      <router-link :to="{name:'property-detail', params:{ID: singleProperty.propertyID}}">
       <img :src="singleProperty.picURL" />
       <div>{{ singleProperty.address }}</div>
-      <div>${{ singleProperty.price }}</div>
-      <div>{{ singleProperty.bedrooms }} Bed</div>
-      <div>{{ singleProperty.bathrooms }} Bath</div>
-      <div>{{ singleProperty.sqFootage }} Sq. Ft.</div>
+      <div>${{ singleProperty.price }}/Month</div>
       </router-link>
   </div>
 </template>
@@ -19,5 +16,7 @@ export default {
 </script>
 
 <style scoped>
-
+  div {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
 </style>
