@@ -1,6 +1,6 @@
 <template>
-  <div>
-    Placeholder {{ $store.getters.role }}
+  <div> WELCOME LANDLORD 
+    <!-- {{ $store.getters.role }} -->
     <button v-on:click="$store.state.showForm = true" v-if="!$store.state.showForm">Add Property</button>
     <property-add-form v-if="$store.state.showForm" />
   </div>
@@ -15,5 +15,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+}
+
+
 </style>
