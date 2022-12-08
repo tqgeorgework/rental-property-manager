@@ -8,14 +8,14 @@
     <router-link :to="{ name: 'maintenance' }" v-if="$store.state.token != ''">Maintenance</router-link>
     </nav>
     <img src="../../img/RPMLogo.png" />
-    <h1 id="site-name">Rental Property Manager</h1>
+    <h1 id="site-name">RentTEnant</h1>
     <menu class="quick-menu">
-      <router-link :to="{ name: 'browse' }"
+      <router-link id="search-shortcut" :to="{ name: 'browse' }"
         ><font-awesome-icon icon="fa-solid fa-search" /></router-link>
-      <router-link :to="{ name: 'maintenance' }"
+      <router-link id="maintenance-shortcut" :to="{ name: 'maintenance' }"
         ><font-awesome-icon icon="fa-solid fa-wrench" />
       </router-link>
-      <router-link :to="{ name: 'profile' }"
+      <router-link id="profile-shortcut" :to="{ name: 'profile' }"
         ><font-awesome-icon icon="fa-solid fa-user-circle" />
       </router-link>
     </menu>
@@ -58,7 +58,7 @@ a#page-header:nth-child(4) {
   margin-bottom: 5px;
   margin-left: -5px;
   width: 100%;
-  height: 27vh;
+  height: 15vh;
  
   display: flex;
   justify-content: space-evenly;
@@ -88,6 +88,8 @@ a#page-header:nth-child(4) {
 }
 
 .quick-menu {
+  display: grid;
+  grid-template-areas: "search-shortcut, maintenance-shortcut, profile-shortcut";
   font-size: 36px;
   margin-right: 10px;
 }

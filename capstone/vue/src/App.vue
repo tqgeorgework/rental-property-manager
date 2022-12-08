@@ -25,7 +25,9 @@ export default {
 }
 </script>
 <style>
+
 #app {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   display: grid;
   grid-template-areas:
   "top"
@@ -33,6 +35,6 @@ export default {
   "foot";
 }
 #view {
-  margin-top: 250px;
+  margin-top: 17vw;
 }
 </style>

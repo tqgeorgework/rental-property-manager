@@ -28,6 +28,9 @@ export default {};
 #bottom {
   border: 2px lightgray solid;
   padding: 10px 30px 10px 30px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  position: fixed;
+  margin-top: 52vh
 }
 #creators-container {
   display: flex;
