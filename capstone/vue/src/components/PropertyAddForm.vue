@@ -95,7 +95,7 @@ input {
                     }
 
 form{
-  margin-left: 30%;
+  margin-right: 50%;
   
 }
 </style>
