@@ -33,11 +33,11 @@ export default {};
 
 a {
   color: rgb(0, 0, 0);
-
 }
 
 #site-name {
   font-size: 52px;
+  filter: drop-shadow(5px 10px 5px #806819);
 }
 
 #page-header:nth-child(1),
@@ -52,14 +52,14 @@ a#page-header:nth-child(4) {
 #page-header {
   color: rgb(112, 21, 21);
   box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2);
-  padding-left: 10px;
-  padding-right: 10px;
+
+  margin-top: -10px;
   padding-bottom: 10px;
   margin-bottom: 5px;
+  margin-left: -5px;
   width: 100%;
-  height: 15%;
-  flex-wrap: wrap;
-  grid-area: header;
+  height: 30%;
+ 
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -69,20 +69,15 @@ a#page-header:nth-child(4) {
 
 }
 #page-header img {
+  filter: drop-shadow(0px 1px 15px #806819);
   height: 140px;
   margin-top: 10px;
+  animation: rotation 5s infinite linear;
 }
 
-#page-header nav {
-  padding-left: 0;
-}
-#page-header nav {
-  list-style-type: none;
-  display: inline;
-}
 #page-header nav :not(:first-child):before {
-  content: "";
-  padding-right: 15px;
+  content: " |";
+  padding-right: 10px;
 }
 #page-header nav a {
   text-decoration: none;
@@ -94,5 +89,16 @@ a#page-header:nth-child(4) {
 
 .quick-menu {
   font-size: 36px;
+  margin-right: 10px;
 }
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
 </style>
