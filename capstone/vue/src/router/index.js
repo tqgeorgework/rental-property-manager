@@ -7,7 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import BrowseListing from '../views/BrowseListing.vue'
 import Maintenance from '../views/Maintenance.vue'
-import DetailedView from '../views/DetailedView.vue'
+import PropertySmallDetail from '../components/PropertySmallDetail.vue'
 
 Vue.use(Router)
 
@@ -73,8 +73,8 @@ const router = new Router({
       }},
       {
       path: "/properties/:ID",
-      name: "detailed-view",
-      component: DetailedView,
+      name: "property-detail",
+      component: PropertyDetail,
       meta: {
         requiresAuth: false
       }
