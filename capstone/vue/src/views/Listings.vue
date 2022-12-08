@@ -1,7 +1,7 @@
 <template>
 
     <div id="property-card-container">
-        <router-link :to="{name:'detailed-view', params:{propertyID:property.propertyID}}" class="property-card" v-for="property in $store.state.properties" :key="property.property_ID">
+        <router-link :to="{name:'property-detail', params:{ID:property.propertyID}}" class="property-card" v-for="property in $store.state.properties" :key="property.property_ID">
             <img :src="property.picURL"/>
             <div>{{property.address}}</div>
             <div>${{property.price}} /month</div>
@@ -23,7 +23,7 @@ created() {
 methods: {
   goToDetailedView() {
     const propertyID = this.$route.params.propertyID;
-    this.$router.push({name : 'detailed-view', params: {id : propertyID}});
+    this.$router.push({name : 'property-detail', params: {ID: propertyID}});
   }
 
 }
