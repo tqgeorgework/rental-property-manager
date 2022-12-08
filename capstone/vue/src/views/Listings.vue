@@ -31,11 +31,19 @@ methods: {
 </script>
 
 <style>
+
+div {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
 #property-card-container {
     display: grid;
     grid-template-areas:
     "property property property";
     gap: 10px;
+   
+
 }
 .property-card img {
     width: 25vw;
