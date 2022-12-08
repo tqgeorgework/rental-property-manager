@@ -85,6 +85,7 @@ public class JdbcPropertyDao implements PropertyDao {
 
     private  Property mapRowToProperty(SqlRowSet rs){
         Property property = new Property();
+        property.setPropertyID(rs.getInt("property_id"));
         property.setAddress(rs.getString("address"));
         property.setPrice(rs.getDouble("price"));
         property.setBedrooms(rs.getInt("bedrooms"));
@@ -93,7 +94,6 @@ public class JdbcPropertyDao implements PropertyDao {
         property.setSqFootage(rs.getInt("sq_footage"));
         property.setDescription(rs.getString("description"));
         property.setLandlordID(rs.getInt("landlord_id"));
-
         return property;
     }
 }
