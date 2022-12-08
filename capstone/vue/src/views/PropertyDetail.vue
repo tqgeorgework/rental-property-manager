@@ -12,10 +12,19 @@
 </template>
 
 <script>
+import PropertyService from "../services/PropertyService"
 export default {
   data() {
     return {
-      currentProperty: {}
+      currentProperty: {
+        picURL: "",
+        address: "",
+        price: 1,
+        bedrooms: 1,
+        bathrooms: 1,
+        sqFootage: 1,
+        description: ""
+      }
     }
   },
   methods: {
@@ -26,7 +35,15 @@ export default {
     },
   },
   created() {
-    this.currentProperty = this.getPropertyByPropertyID(this.$route.params.propertyID);
+    PropertyService.property(this.$route.params.propertyID).then(response => {
+      this.currentProperty.picURL = response.data.picURL;
+      this.currentProperty.address = response.data.address;
+      this.currentProperty.price = response.data.price;
+      this.currentProperty.bedrooms = response.data.bedrooms;
+      this.currentProperty.bathrooms = response.data.bathrooms;
+      this.currentProperty.sqFootage = response.data.sqFootage;
+      this.currentProperty.description = response.data.description;
+    });
   }
 };
 </script>
