@@ -34,6 +34,7 @@ public class PropertyController {
         return propertyDao.getAllProperties();
     }
 
+    @PreAuthorize("permitAll()")
     @GetMapping(path = "/{ID}")
     public Property getProperty(@PathVariable int ID) {
         Property property = propertyDao.getPropertyByID(ID);
