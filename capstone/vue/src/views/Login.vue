@@ -77,4 +77,18 @@ export default {
 };
 </script>
 
+<style>
+
+div {
+  display: flex;
+  flex-direction: row;
+}
+
+button {
+  
+  filter: drop-shadow(5px 5px 5px #806819);
+
+}
+
+</style>
 

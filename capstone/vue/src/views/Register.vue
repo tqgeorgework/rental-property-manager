@@ -90,4 +90,19 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+}
+
+button {
+  
+  filter: drop-shadow(5px 5px 5px #806819);
+
+}
+
+</style>

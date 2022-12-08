@@ -76,7 +76,7 @@ a#page-header:nth-child(4) {
 }
 
 #page-header nav :not(:first-child):before {
-  content: " |";
+  content: "|";
   padding-right: 10px;
 }
 #page-header nav a {
