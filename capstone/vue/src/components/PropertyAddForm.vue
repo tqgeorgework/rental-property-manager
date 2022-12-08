@@ -84,7 +84,7 @@ input {
                     height: 40px;
                     border: none;
                     border-bottom: 1px solid #8d8d8d;
-                    background-color: #f4f4f4;
+                    background-color: #f4f4f4fa;
                     padding: 0 16px;
                     color: #161616;
                     transition: background-color 70ms cubic-bezier(.2,0,.38,.9),outline 70ms cubic-bezier(.2,0,.38,.9); 
@@ -95,6 +95,7 @@ input {
                     }
 
 form{
-  margin-left: 40%;
+  margin-left: 30%;
+  
 }
 </style>
