@@ -35,7 +35,7 @@ export default {
     },
   },
   created() {
-    PropertyService.property(this.$route.params.propertyID).then(response => {
+    PropertyService.property(this.$route.params.ID).then(response => {
       this.currentProperty.picURL = response.data.picURL;
       this.currentProperty.address = response.data.address;
       this.currentProperty.price = response.data.price;
@@ -48,5 +48,14 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+img {
+  width: 100vh;
+}
 </style>

@@ -58,7 +58,7 @@ a#page-header:nth-child(4) {
   margin-bottom: 5px;
   margin-left: -5px;
   width: 100%;
-  height: 30%;
+  height: 15%;
  
   display: flex;
   justify-content: space-evenly;
