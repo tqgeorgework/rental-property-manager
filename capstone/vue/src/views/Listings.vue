@@ -1,15 +1,14 @@
 <template>
+
     <div id="property-card-container">
-        <div class="property-card" v-for="property in $store.state.properties" :key="property.property_ID">
+        <router-link :to="{name:'detailed-view', params:{propertyID:property.propertyID}}" class="property-card" v-for="property in $store.state.properties" :key="property.property_ID">
             <img :src="property.picURL"/>
             <div>{{property.address}}</div>
-            <div>${{property.price}}</div>
-            <div>{{property.bedrooms}} Bed </div>
-            <div>{{property.bathrooms}} Bath </div>
-            <div>{{property.sqFootage}} Sq. Ft.</div>
+            <div>${{property.price}} /month</div>
             <p/>
+            </router-link>
             
-        </div>
+        
         Placeholder Listings</div>
 </template>
 
@@ -20,6 +19,13 @@ created() {
   PropertyService.properties().then(response => {
     this.$store.state.properties=response.data;
   })
+},
+methods: {
+  goToDetailedView() {
+    const propertyID = this.$route.params.propertyID;
+    this.$router.push({name : 'detailed-view', params: {id : propertyID}});
+  }
+
 }
 }
 </script>

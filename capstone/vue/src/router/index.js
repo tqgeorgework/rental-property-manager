@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import Listings from '../views/Listings.vue'
 import Maintenance from '../views/Maintenance.vue'
+import DetailedView from '../views/DetailedView.vue'
 
 Vue.use(Router)
 
@@ -69,8 +70,17 @@ const router = new Router({
       component: Maintenance,
       meta: {
         requiresAuth: true
+      }},
+      {
+      path: "/properties/:ID",
+      name: "detailed-view",
+      component: DetailedView,
+      meta: {
+        requiresAuth: false
       }
-    },
+    }
+    
+    ,
   ]
 })
 
