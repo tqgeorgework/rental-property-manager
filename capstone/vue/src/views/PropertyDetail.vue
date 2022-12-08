@@ -54,6 +54,8 @@ div {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-left: 10vw;
+  margin-right: 10vw;
 }
 img {
   width: 100vh;

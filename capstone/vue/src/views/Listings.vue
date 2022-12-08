@@ -32,6 +32,7 @@ methods: {
 
 <style>
 
+
 div {
   display: flex;
   justify-content: center;
