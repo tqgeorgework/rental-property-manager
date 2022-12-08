@@ -5,7 +5,7 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
-import Listings from '../views/Listings.vue'
+import BrowseListing from '../views/BrowseListing.vue'
 import Maintenance from '../views/Maintenance.vue'
 import DetailedView from '../views/DetailedView.vue'
 
@@ -27,7 +27,7 @@ const router = new Router({
     {
       path: "/",
       name: "listings",
-      component: Listings,
+      component: BrowseListing,
       meta: {
         requiresAuth: false
       }

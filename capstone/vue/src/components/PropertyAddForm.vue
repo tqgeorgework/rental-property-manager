@@ -1,0 +1,101 @@
+<template>
+  <form v-on:submit.prevent="addProperty">
+    <div>
+      <label>Address:</label>
+      <input type="text" v-model="$store.state.newProperty.address" />
+    </div>
+    <div>
+      <label>Price:</label>
+      <input type="number" v-model="$store.state.newProperty.price" />
+    </div>
+    <div>
+      <label>Bedrooms:</label>
+      <input type="number" v-model="$store.state.newProperty.bedrooms" />
+    </div>
+    <div>
+      <label>Bathroom:</label>
+      <input
+        type="number"
+        step="0.5"
+        v-model="$store.state.newProperty.bathrooms"
+      />
+    </div>
+    <div>
+      <label>Pic URL:</label>
+      <input type="url" v-model="$store.state.newProperty.picURL" />
+    </div>
+    <div>
+      <label>SQ Footage:</label>
+      <input type="number" v-model="$store.state.newProperty.sqFootage" />
+    </div>
+    <div>
+      <label>Description:</label>
+      <input type="text" v-model="$store.state.newProperty.description" />
+    </div>
+    <div>
+      <input type="submit" value="Save" />
+      <input v-on:click="resetForm" type="button" value="Cancel" />
+    </div>
+  </form>
+</template>
+
+<script>
+import PropertyService from "../services/PropertyService";
+
+export default {
+
+  data() {
+    return {
+
+    };
+  },
+  methods: {
+    addProperty() {
+      let newProperty = this.$store.state.newProperty;
+
+      PropertyService.addProperty(newProperty).then((response) => {
+        if (response.status === 200) {
+          this.$store.commit("ADD_PROPERTY", newProperty);
+        }
+      });
+      this.resetForm();
+    },
+    resetForm() {
+      this.$store.state.showForm = false;
+      this.$store.state.newProperty = {};
+    },
+  },
+};
+</script>
+
+<style scope>
+input {
+  box-sizing: border-box;
+                    font-family: inherit;
+                    font-size: 14px;
+                    vertical-align: baseline;
+                    font-weight: 400;
+                    line-height: 1.29;
+                    letter-spacing: .16px;
+                    border-radius: 0;
+                    outline: 2px solid transparent;
+                    outline-offset: -2px;
+                    
+                    height: 40px;
+                    border: none;
+                    border-bottom: 1px solid #8d8d8d;
+                    background-color: #f4f4f4fa;
+                    padding: 0 16px;
+                    color: #161616;
+                    transition: background-color 70ms cubic-bezier(.2,0,.38,.9),outline 70ms cubic-bezier(.2,0,.38,.9); 
+}
+                    :focus{
+                        outline: 2px solid #0f62fe;
+                        outline-offset: -2px;
+                    }
+
+form{
+  margin-left: 30%;
+  
+}
+</style>
