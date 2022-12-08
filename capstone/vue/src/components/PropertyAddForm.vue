@@ -1,5 +1,5 @@
 <template>
-  <form v-on:submit.prevent="addProperty">
+  <form id="addPropertyForm" v-on:submit.prevent="addProperty">
     <div>
       <label>Address:</label>
       <input type="text" v-model="$store.state.newProperty.address" />
@@ -13,7 +13,7 @@
       <input type="number" v-model="$store.state.newProperty.bedrooms" />
     </div>
     <div>
-      <label>Bathroom:</label>
+      <label>Bathrooms:</label>
       <input
         type="number"
         step="0.5"
@@ -29,12 +29,12 @@
       <input type="number" v-model="$store.state.newProperty.sqFootage" />
     </div>
     <div>
-      <label>Description:</label>
-      <input type="text" v-model="$store.state.newProperty.description" />
+      <label>Description:&nbsp;</label>
+      <textarea type="text" v-model="$store.state.newProperty.description" />
     </div>
     <div>
-      <input type="submit" value="Save" />
-      <input v-on:click="resetForm" type="button" value="Cancel" />
+      <input class="save" type="submit" value="Save" />
+      <input class="cancel" v-on:click="resetForm" type="button" value="Cancel" />
     </div>
   </form>
 </template>
@@ -68,7 +68,7 @@ export default {
 };
 </script>
 
-<style scope>
+<style scoped>
 input {
   box-sizing: border-box;
                     font-family: inherit;
@@ -80,22 +80,39 @@ input {
                     border-radius: 0;
                     outline: 2px solid transparent;
                     outline-offset: -2px;
-                    
                     height: 40px;
                     border: none;
-                    border-bottom: 1px solid #8d8d8d;
+                    border-bottom: 1px solid #8D8D8D;
                     background-color: #f4f4f4fa;
                     padding: 0 16px;
                     color: #161616;
-                    transition: background-color 70ms cubic-bezier(.2,0,.38,.9),outline 70ms cubic-bezier(.2,0,.38,.9); 
+                    transition: background-color 70ms cubic-bezier(.2,0,.38,.9),outline 70ms cubic-bezier(.2,0,.38,.9);
 }
                     :focus{
-                        outline: 2px solid #0f62fe;
+                        outline: 2px solid #0F62FE;
                         outline-offset: -2px;
                     }
-
 form{
   margin-right: 50%;
-  
+  margin-top: 50px;
+ 
+}
+label{
+  align-items: flex-start;
+  width: 40vh;
+}
+.cancel{
+ display: flex;
+ flex-direction: row;
+ margin: 20px;
+}
+.save{
+ display: flex;
+ flex-direction: row;
+ margin: 20px;
+}
+textarea{
+  width:400px;
+  height: 130px;
 }
 </style>
