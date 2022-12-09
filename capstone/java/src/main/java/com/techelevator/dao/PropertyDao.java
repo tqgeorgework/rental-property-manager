@@ -11,5 +11,6 @@ public interface PropertyDao {
     Property getPropertyByID(int ID);
     Property createProperty(Property property, Principal principal);
     List<Property> getPropertiesByPrincipal(Principal principal);
-    Property getPropertyByRenter(int userID);
+    Property getPropertyByRenter(Principal principal);
+    void payRentProperty(Property property);
 }
