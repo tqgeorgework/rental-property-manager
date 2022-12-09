@@ -12,5 +12,5 @@ public interface PropertyDao {
     Property createProperty(Property property, Principal principal);
     List<Property> getPropertiesByPrincipal(Principal principal);
     Boolean getOccupiedStatus(int propertyID);
-    Boolean getPaidStatus(int propertyID);
+    String getRentStatus(int propertyID);
 }
