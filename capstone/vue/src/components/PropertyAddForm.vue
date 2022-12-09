@@ -94,22 +94,27 @@ input {
                     }
 form{
   margin-right: 50%;
-  margin-top: 50px;
+  margin-top: 20px;
  
 }
 label{
   align-items: flex-start;
   width: 40vh;
 }
-.cancel{
- display: flex;
- flex-direction: row;
- margin: 20px;
-}
-.save{
- display: flex;
- flex-direction: row;
- margin: 20px;
+
+.save, .cancel{
+ display: inline-block;
+                outline: 0;
+                border: none;
+                cursor: pointer;
+                padding: 0px 24px;
+                border-radius: 50px;
+                min-width: 200px;
+                height: 50px;
+                font-size: 18px;
+                background-color: #fd0;
+                font-weight: 500;
+                color: #222;
 }
 textarea{
   width:400px;
