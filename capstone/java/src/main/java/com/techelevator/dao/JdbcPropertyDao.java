@@ -73,7 +73,7 @@ public class JdbcPropertyDao implements PropertyDao {
     public List<Property> getPropertiesByPrincipal(Principal principal){
          List<Property> properties = new ArrayList<>();
          int landlordID = userDao.findIdByUsername(principal.getName());
-         String sql = "SELECT property_id, address, price, bedrooms, bathrooms, pic_url, sq_footage, description FROM property WHERE landlord_id = ?;";
+         String sql = "SELECT property_id, address, price, bedrooms, bathrooms, pic_url, sq_footage, description, is_rented, rent_status FROM property WHERE landlord_id = ?;";
 
          SqlRowSet results = jdbcTemplate.queryForRowSet(sql, landlordID);
 
@@ -83,15 +83,16 @@ public class JdbcPropertyDao implements PropertyDao {
         return properties;
     }
 
-    public void isMonthPaid(Property property) {
+    public Property getPropertyByRenter(int userID) {
+        Property property = new Property;
+        String sql = "SELECT property_id, address, price, bedrooms, bathrooms, pic_url, sq_footage, description, is_rented, rent_status " +
+                " FROM property AS p JOIN property_users AS pu ON p.property_id = pu.property_id WHERE renter_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userID);
 
-    }
-
-    public String getRentStatus(int propertyID) {
-        return null;
-    }
-    public Boolean getOccupiedStatus(int propertyID) {
-        return null;
+        if(results.next()) {
+            property = mapRowToProperty(results);
+        }
+        return property;
     }
 
 
