@@ -50,7 +50,7 @@
   </fieldset>
      
      
-      <button class="btn btn-lg btn-primary btn-block" type="submit" v-on:click="register">
+      <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
       </button>
 
@@ -67,6 +67,7 @@ export default {
   data() {
     return {
       user: {
+        name: '',
         username: '',
         password: '',
         confirmPassword: '',
@@ -123,5 +124,8 @@ button {
   filter: drop-shadow(5px 5px 5px #806819);
 
 }
+ #radio {
+        color: rgb(112, 21, 21);
+    }
 
 </style>
