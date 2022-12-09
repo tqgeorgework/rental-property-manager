@@ -44,9 +44,9 @@
       />
        <fieldset required>
         <legend>Please select one of the following:</legend>
-        <input type="radio" name="radioBtn" v-model="user.role" id="landlord" value="landlord" /><label for="landlord">Landlord</label><br />
-        <input type="radio" name="radioBtn" v-model="user.role" id="tenant" value="tenant"  /><label for="tenant">Tenant</label><br />
-        <input type="radio" name="radioBtn" v-model="user.role" id="maintenance" value="maintenance" /><label for="maintenance">Maintenance Worker</label><br />
+        <input type="radio" name="radioBtn" class="radio" v-model="user.role" id="landlord" value="landlord" /><label for="landlord">Landlord</label><br />
+        <input type="radio" name="radioBtn" class="radio" v-model="user.role" id="tenant" value="tenant"  /><label for="tenant">Tenant</label><br />
+        <input type="radio" name="radioBtn" class="radio" v-model="user.role" id="maintenance" value="maintenance" /><label for="maintenance">Maintenance Worker</label><br />
   </fieldset>
      
      
@@ -124,7 +124,7 @@ button {
   filter: drop-shadow(5px 5px 5px #806819);
 
 }
- #radio {
+ .radio {
         color: rgb(112, 21, 21);
     }
 
