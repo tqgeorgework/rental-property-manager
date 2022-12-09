@@ -11,10 +11,12 @@ public class Property {
     private int sqFootage;
     private String description;
     private int landlordID;
+    private boolean isPaid;
+    private boolean isRented;
 
     public Property() {}
 
-    public Property(int propertyID, double price, String address, int bedrooms, double bathrooms, String picURL, int sqFootage, String description, int landlordID) {
+    public Property(int propertyID, double price, String address, int bedrooms, double bathrooms, String picURL, int sqFootage, String description, int landlordID, boolean isPaid, boolean isRented) {
         this.propertyID = propertyID;
         this.price = price;
         this.address = address;
@@ -24,6 +26,8 @@ public class Property {
         this.sqFootage = sqFootage;
         this.description = description;
         this.landlordID = landlordID;
+        this.isPaid = isPaid;
+        this.isRented = isRented;
     }
 
     public int getPropertyID() {
@@ -98,5 +102,19 @@ public class Property {
         this.landlordID = landlordID;
     }
 
+    public boolean isPaid() {
+        return isPaid;
+    }
 
+    public void setPaid(boolean paid) {
+        isPaid = paid;
+    }
+
+    public boolean isRented() {
+        return isRented;
+    }
+
+    public void setRented(boolean rented) {
+        isRented = rented;
+    }
 }
