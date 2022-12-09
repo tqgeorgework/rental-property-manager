@@ -17,6 +17,8 @@ public class RegisterUserDto {
     private String confirmPassword;
     @NotEmpty(message = "Please select a role for this user.")
     private String role;
+    @NotEmpty
+    private String name;
 
     public String getUsername() {
         return username;
@@ -44,6 +46,10 @@ public class RegisterUserDto {
 
     public String getRole() {
         return role;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void setRole(String role) {
