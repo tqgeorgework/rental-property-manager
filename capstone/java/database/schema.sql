@@ -23,7 +23,8 @@ CREATE TABLE property (
 	sq_footage int NOT NULL,
 	description varchar(1000),
 	landlord_id int NOT NULL,
-	--maybe add boolean for isRented?
+	isRented boolean NOT NULL DEFAULT false,
+	isPaid boolean NOT NULL DEFAULT false,
 	CONSTRAINT PK_property PRIMARY KEY (property_id),
 	CONSTRAINT FK_landlord_id_to_user_id FOREIGN KEY (landlord_id) REFERENCES users (user_id),
 	CONSTRAINT CK_price CHECK (price > 0),
@@ -31,6 +32,13 @@ CREATE TABLE property (
 	CONSTRAINT CK_bathrooms CHECK (bathrooms > 0),
 	CONSTRAINT CK_sq_footage CHECK (sq_footage > 0)
 	
+);
+
+CREATE TABLE property_users (
+	property_id int,
+	renter_id int,
+	CONSTRAINT FK_property_id_to_property_id FOREIGN KEY (property_id) REFERENCES property (property_id),
+	CONSTRAINT FK_renter_id_to_user_id FOREIGN KEY (renter_id) REFERENCES users (user_id)	
 );
 
 COMMIT TRANSACTION;
