@@ -78,7 +78,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 
 div {
   display: flex;
@@ -86,8 +86,13 @@ div {
 }
 
 button {
-  
   filter: drop-shadow(5px 5px 5px #806819);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 
 }
 

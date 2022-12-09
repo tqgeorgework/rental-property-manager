@@ -110,7 +110,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 
 form {
   display: flex;
@@ -124,8 +124,10 @@ button {
   filter: drop-shadow(5px 5px 5px #806819);
 
 }
- .radio {
-        color: rgb(112, 21, 21);
-    }
+
+input[type=radio] {
+
+  accent-color: rgb(112, 21, 21);
+}
 
 </style>
