@@ -13,6 +13,9 @@ export default {
     },
     getOwnProperties() {
         return axios.get('/properties/own')
+    },
+    getPropertyByRenter() {
+        return axios.get('/properties/renter-property')
     }
 
 }

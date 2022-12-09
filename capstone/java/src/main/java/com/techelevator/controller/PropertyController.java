@@ -59,12 +59,12 @@ public class PropertyController {
         return propertyDao.getPropertiesByPrincipal(principal);
     }
 
-    @GetMapping(path = "/RenterProperty")
+    @GetMapping(path = "/renter-property")
     public Property getPropertyByRenter(Principal principal) {
         return propertyDao.getPropertyByRenter(principal);
     }
 
-    @PutMapping(path = "/RenterProperty")
+    @PutMapping(path = "/renter-property")
     public void payRent(@RequestBody Property property) {
         propertyDao.payRentProperty(property);
     }

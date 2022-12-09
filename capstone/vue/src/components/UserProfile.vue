@@ -2,7 +2,7 @@
   <div>Placeholder {{$store.getters.role}} 
     <p>
    <br>
-    <label :class="{'unpaid': !clicked, 'paid': clicked}">Amount Due: {{$store.getters.price}} </label>
+    <label :class="{'unpaid': !clicked, 'paid': clicked}">Amount Due: {{userProperty.price}} </label>
    <br>
     <button v-on:click="clicked = !clicked">Pay Rent</button>
     </p>
@@ -11,14 +11,29 @@
 </template>
 
 <script>
+import PropertyService from '../services/PropertyService';
 export default {
   data() {
     return {
-      clicked: false
+      clicked: false,
+      userProperty: {
+        price: 0
+      }
     }
+  },
+methods: {
+  getRent(){
+    PropertyService.getPropertyByRenter().then((response)=> {
+      this.userProperty = response.data;
+      
+    })
   }
-
+},
+created(){
+  this.getRent();
 }
+}
+
 </script>
 
 <style scoped>
