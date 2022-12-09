@@ -3,7 +3,7 @@
     <admin-profile v-if="$store.getters.role == 'ROLE_ADMIN'"/>
     <landlord-profile v-if="$store.getters.role == 'ROLE_LANDLORD'"/>
     <user-profile v-if="$store.getters.role == 'ROLE_USER'"/>
-    <maintenance-profile v-if="$store.getters.role == 'ROLE_MAINTENANCE'"/>
+    <maintenance-profile v-if="$store.getters.role == 'ROLE_MAINTENANCE' "/>
   </div>
 </template>
 

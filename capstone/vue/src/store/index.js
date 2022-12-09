@@ -49,6 +49,10 @@ export default new Vuex.Store({
   getters: {
     role(state) {
       return state.user.authorities[0].name;
-    }
+    },
+    price(state) {
+      return state.properties.price;
+  }
+  
   }
 })
