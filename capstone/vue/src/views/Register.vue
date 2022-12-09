@@ -5,6 +5,16 @@
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
+      <label for="full-name" class="sr-only">Full Name</label>
+      <input
+        type="text"
+        id="name"
+        class="form-control"
+        placeholder="Full Name"
+        v-model="user.name"
+        required
+        autofocus
+      />
       <label for="username" class="sr-only">Username</label>
       <input
         type="text"
@@ -32,8 +42,15 @@
         v-model="user.confirmPassword"
         required
       />
+       <fieldset required>
+        <legend>Please select one of the following:</legend>
+        <input type="radio" name="radioBtn" v-model="user.role" id="landlord" value="landlord" /><label for="landlord">Landlord</label><br />
+        <input type="radio" name="radioBtn" v-model="user.role" id="tenant" value="tenant"  /><label for="tenant">Tenant</label><br />
+        <input type="radio" name="radioBtn" v-model="user.role" id="maintenance" value="maintenance" /><label for="maintenance">Maintenance Worker</label><br />
+  </fieldset>
      
-      <button class="btn btn-lg btn-primary btn-block" type="submit">
+     
+      <button class="btn btn-lg btn-primary btn-block" type="submit" v-on:click="register">
         Create Account
       </button>
 
