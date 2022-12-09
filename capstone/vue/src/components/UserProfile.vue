@@ -2,9 +2,9 @@
   <div>Placeholder {{$store.getters.role}} 
     <p>
    <br>
-    <label :class="{'unpaid': !clicked, 'paid': clicked}">Amount Due: {{userProperty.price}} </label>
+    <label :class="{'unpaid': !clicked, 'paid': clicked}">Amount Due: {{clicked ? "PAID" : userProperty.price}} </label>
    <br>
-    <button v-on:click="clicked = !clicked">Pay Rent</button>
+    <button :disabled="clicked" v-on:click="clicked = !clicked">Pay Rent</button>
     </p>
   </div>
   

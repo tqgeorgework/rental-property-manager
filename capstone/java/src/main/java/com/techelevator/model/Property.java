@@ -110,7 +110,7 @@ public class Property {
         this.rentStatus = rentStatus;
     }
 
-    public boolean isRented() {
+    public boolean getRented() {
         return isRented;
     }
 

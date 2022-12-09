@@ -1,6 +1,10 @@
 BEGIN TRANSACTION;
 
 INSERT INTO users (username,password_hash,role, name) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', 'joe');
+INSERT INTO users (username,password_hash,role, name) VALUES ('user2','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', 'joshua');
+INSERT INTO users (username,password_hash,role, name) VALUES ('user3','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', 'jodi');
+INSERT INTO users (username,password_hash,role, name) VALUES ('user4','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', 'joel');
+INSERT INTO users (username,password_hash,role, name) VALUES ('user5','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', 'josh');
 INSERT INTO users (username,password_hash,role, name) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN', 'jolene');
 INSERT INTO users (username,password_hash,role, name) VALUES ('maintenance','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_MAINTENANCE', 'joseph');
 INSERT INTO users (username,password_hash,role, name) VALUES ('landlord','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_LANDLORD', 'jo');
@@ -49,9 +53,16 @@ VALUES ('6993 Richfield Dr, Reynoldsburg, OH 43068', 2085, 3, 2, 'https://photos
 VALUES ('4311 Sidway Ave, Columbus, OH 43227', 1495, 3, 2, 'https://photos.zillowstatic.com/fp/c641c08fcf0c0ae3d0c7ba69345971a9-cc_ft_768.webp', 
 	   1218, 'description', 1);
 	   
-	   
-	   
-	   
+INSERT INTO property_users(property_id, renter_id)
+VALUES (1, 1);
+INSERT INTO property_users(property_id, renter_id)
+VALUES (1, 2);
+INSERT INTO property_users(property_id, renter_id)
+VALUES (2, 3);
+INSERT INTO property_users(property_id, renter_id)
+VALUES (2, 4);
+INSERT INTO property_users(property_id, renter_id)
+VALUES (3, 5);
 	   
 	  
 

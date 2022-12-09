@@ -52,7 +52,8 @@ export default {
   methods: {
     addProperty() {
       let newProperty = this.$store.state.newProperty;
-
+      newProperty.rentStatus = "PAID",
+      newProperty.rented = false;
       PropertyService.addProperty(newProperty).then((response) => {
         if (response.status === 200) {
           this.$store.commit("ADD_PROPERTY", newProperty);

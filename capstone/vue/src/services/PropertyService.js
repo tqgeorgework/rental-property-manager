@@ -16,6 +16,9 @@ export default {
     },
     getPropertyByRenter() {
         return axios.get('/properties/renter-property')
+    },
+    updateProperty(propertyID) {
+        return axios.put(`/properties/${propertyID}`)
     }
 
 }

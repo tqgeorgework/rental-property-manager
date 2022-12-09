@@ -38,7 +38,7 @@ public class JdbcPropertyDao implements PropertyDao {
     @Override
     public Property getPropertyByID(int ID){
 
-        String sql = "SELECT property_id, address, price, bedrooms, bathrooms, pic_url, sq_footage, description, landlord_id FROM property WHERE property_id = ?;";
+        String sql = "SELECT property_id, address, price, bedrooms, bathrooms, pic_url, sq_footage, description, landlord_id, is_rented, rent_status FROM property WHERE property_id = ?;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, ID);
 
@@ -49,7 +49,7 @@ public class JdbcPropertyDao implements PropertyDao {
 
     @Override
     public Property createProperty(Property property, Principal principal){
-        String sql = "INSERT INTO property (address, price, bedrooms, bathrooms, pic_url, sq_footage, description, landlord_id) VALUES (?,?,?,?,?,?,?,?) RETURNING property_id;";
+        String sql = "INSERT INTO property (address, price, bedrooms, bathrooms, pic_url, sq_footage, description, landlord_id, is_rented, rent_status) VALUES (?,?,?,?,?,?,?,?,?,?) RETURNING property_id;";
         Integer newPropertyID;
         Property newProperty;
 
@@ -59,7 +59,7 @@ public class JdbcPropertyDao implements PropertyDao {
 
         try{
             newPropertyID = jdbcTemplate.queryForObject(sql, Integer.class, property.getAddress(), property.getPrice(),
-                    property.getBedrooms(), property.getBathrooms(), property.getPicURL(), property.getSqFootage(), property.getDescription(), property.getLandlordID());
+                    property.getBedrooms(), property.getBathrooms(), property.getPicURL(), property.getSqFootage(), property.getDescription(), property.getLandlordID(), property.getRented(), property.getRentStatus());
 
             newProperty = getPropertyByID(newPropertyID);
 
@@ -87,7 +87,7 @@ public class JdbcPropertyDao implements PropertyDao {
     public Property getPropertyByRenter(Principal principal) {
         int userID = userDao.findIdByUsername(principal.getName());
         Property property = new Property();
-        String sql = "SELECT property_id, address, price, bedrooms, bathrooms, pic_url, sq_footage, description, is_rented, rent_status " +
+        String sql = "SELECT p.property_id, address, price, bedrooms, bathrooms, pic_url, sq_footage, description, landlord_id, is_rented, rent_status " +
                 " FROM property AS p JOIN property_users AS pu ON p.property_id = pu.property_id WHERE renter_id = ?;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userID);
 
@@ -119,8 +119,8 @@ public class JdbcPropertyDao implements PropertyDao {
         property.setSqFootage(rs.getInt("sq_footage"));
         property.setDescription(rs.getString("description"));
         property.setLandlordID(rs.getInt("landlord_id"));
-        property.setRentStatus(rs.getString("rent_status"));
         property.setRented(rs.getBoolean("is_rented"));
+        property.setRentStatus(rs.getString("rent_status"));
         return property;
     }
 }
