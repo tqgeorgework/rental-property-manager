@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 
+import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import com.techelevator.model.Property;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -82,8 +83,9 @@ public class JdbcPropertyDao implements PropertyDao {
          }
         return properties;
     }
-
-    public Property getPropertyByRenter(int userID) {
+    @Override
+    public Property getPropertyByRenter(Principal principal) {
+        int userID = userDao.findIdByUsername(principal.getName());
         Property property = new Property();
         String sql = "SELECT property_id, address, price, bedrooms, bathrooms, pic_url, sq_footage, description, is_rented, rent_status " +
                 " FROM property AS p JOIN property_users AS pu ON p.property_id = pu.property_id WHERE renter_id = ?;";
@@ -93,6 +95,16 @@ public class JdbcPropertyDao implements PropertyDao {
             property = mapRowToProperty(results);
         }
         return property;
+    }
+
+    public void updateStatus(String status) {
+        //if it's the start of the 15th, rent is now due. If it's the start of the new month, and rent is still due, it's now overdue.
+
+    }
+
+    public void payRentProperty(Property property) {
+        String sql = "UPDATE property SET rent_status = ? WHERE property_id = ?";
+        jdbcTemplate.update(sql, "PAID", property.getPropertyID());
     }
 
 

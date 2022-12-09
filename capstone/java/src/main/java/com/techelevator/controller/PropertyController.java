@@ -1,5 +1,6 @@
 package com.techelevator.controller;
 
+import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import com.techelevator.dao.PropertyDao;
 import com.techelevator.model.Property;
 import org.springframework.http.HttpStatus;
@@ -56,6 +57,16 @@ public class PropertyController {
     @GetMapping(path = "/own")
     public List<Property> getPropertiesByPrincipal(Principal principal) {
         return propertyDao.getPropertiesByPrincipal(principal);
+    }
+
+    @GetMapping(path = "/RenterProperty")
+    public Property getPropertyByRenter(Principal principal) {
+        return propertyDao.getPropertyByRenter(principal);
+    }
+
+    @PutMapping(path = "/RenterProperty")
+    public void payRent(@RequestBody Property property) {
+        propertyDao.payRentProperty(property);
     }
 
 
