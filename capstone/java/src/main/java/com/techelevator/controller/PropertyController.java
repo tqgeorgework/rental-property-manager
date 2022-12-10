@@ -19,7 +19,6 @@ import java.util.List;
 @RequestMapping("/properties")
 @CrossOrigin
 @PreAuthorize("isAuthenticated()")
-//@PreAuthorize("hasRole('USER')")
 
 public class PropertyController {
     private PropertyDao propertyDao;
@@ -59,12 +58,12 @@ public class PropertyController {
         return propertyDao.getPropertiesByPrincipal(principal);
     }
 
-    @GetMapping(path = "/renter-property")
+    @GetMapping(path = "/renterProperty")
     public Property getPropertyByRenter(Principal principal) {
         return propertyDao.getPropertyByRenter(principal);
     }
 
-    @PutMapping(path = "/renter-property")
+    @PutMapping(path = "/renterProperty")
     public void payRent(@RequestBody Property property) {
         propertyDao.payRentProperty(property);
     }

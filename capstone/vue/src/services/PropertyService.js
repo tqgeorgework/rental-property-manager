@@ -15,10 +15,10 @@ export default {
         return axios.get('/properties/own')
     },
     getPropertyByRenter() {
-        return axios.get('/properties/renter-property')
+        return axios.get('/properties/renterProperty')
     },
-    updateProperty(propertyID) {
-        return axios.put(`/properties/${propertyID}`)
+    updateProperty(property) {
+        return axios.put(`/properties/renterProperty}`, property)
     }
 
 }

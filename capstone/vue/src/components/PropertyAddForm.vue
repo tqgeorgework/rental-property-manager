@@ -6,16 +6,18 @@
     </div>
     <div>
       <label>Price:</label>
-      <input type="number" v-model="$store.state.newProperty.price" />
+      <input type="number" value="700" min="5" step="5" v-model="$store.state.newProperty.price" />
     </div>
     <div>
       <label>Bedrooms:</label>
-      <input type="number" v-model="$store.state.newProperty.bedrooms" />
+      <input type="number" value="1" min="1" v-model="$store.state.newProperty.bedrooms" />
     </div>
     <div>
       <label>Bathrooms:</label>
       <input
         type="number"
+        value="1"
+        min="0.5"
         step="0.5"
         v-model="$store.state.newProperty.bathrooms"
       />
@@ -26,7 +28,7 @@
     </div>
     <div>
       <label>SQ Footage:</label>
-      <input type="number" v-model="$store.state.newProperty.sqFootage" />
+      <input type="number" value="500" step="5" min="5" v-model="$store.state.newProperty.sqFootage" />
     </div>
     <div>
       <label>Description:&nbsp;</label>
