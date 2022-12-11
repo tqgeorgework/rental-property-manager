@@ -7,8 +7,8 @@
     <router-link :to="{ name: 'listings' }">Browse Listings</router-link>
     <router-link :to="{ name: 'maintenance' }" v-if="$store.state.token != ''">Maintenance</router-link>
     </nav>
-    <img src="../../img/RTlogo.png" />
-    <!-- <h1 id="site-name">RentTEnant</h1> -->
+    <img src="../../img/OrgLogo.png" />
+    <h1 id="site-name">Rent<span style='font-size:1.2em;'>TE</span>nant</h1>
     <menu class="quick-menu">
       <router-link id="search-shortcut" :to="{ name: 'browse' }"
         ><font-awesome-icon icon="fa-solid fa-search" /></router-link>
@@ -36,7 +36,7 @@ a {
 }
 
 #site-name {
-  font-size: 52px;
+  font-size: 8.5vh;
   filter: drop-shadow(5px 10px 5px #806819);
 }
 
@@ -50,14 +50,15 @@ a#page-header:nth-child(4) {
 }
 
 #page-header {
-  color: rgb(112, 21, 21);
+  /* color: rgb(112, 21, 21); */
+  animation: color-change 8s infinite;
   box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2);
 
   margin-top: -10px;
   padding-bottom: 10px;
   margin-bottom: 5px;
   margin-left: -5px;
-  width: 100%;
+  width: 100vw;
   height: 20vh;
  
   display: flex;
@@ -70,9 +71,11 @@ a#page-header:nth-child(4) {
 }
 #page-header img {
   /* filter: drop-shadow(0px 1px 15px #806819); */
-  height: 140px;
+  height: 20vh;
   margin-top: 10px;
-  /* animation: rotation 1s initial linear; */
+  /* animation: rotation 25s infinite alternate; */
+  animation: rotation 20s linear 40s alternate infinite;
+ 
 }
 
 #page-header nav :not(:first-child):before {
@@ -94,15 +97,35 @@ a#page-header:nth-child(4) {
   margin-right: 10px;
 }
 
-/* @keyframes rotation {
+@keyframes rotation {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
-} */
 
+  
+}
 
+@keyframes rotation {
+  80% {
+    transform: translateX(0px) rotateZ(0deg);
+  }
+  
+  20% {
+    transform: translateX(22.5vw) rotateZ(360deg);
+  }
+  
+  40% {
+    transform: translateX(22.5vw) rotateZ(360deg);
+  }
+}
+
+@keyframes color-change {
+  0% { color: rgb(112, 21, 21); }
+  50% { color: black; }
+  100% { color: rgb(6, 58, 4); }
+}
 
 </style>
