@@ -7,8 +7,8 @@
     <router-link :to="{ name: 'listings' }">Browse Listings</router-link>
     <router-link :to="{ name: 'maintenance' }" v-if="$store.state.token != ''">Maintenance</router-link>
     </nav>
-    <img src="../../img/RPMLogo.png" />
-    <h1 id="site-name">RentTEnant</h1>
+    <img src="../../img/RTlogo.png" />
+    <!-- <h1 id="site-name">RentTEnant</h1> -->
     <menu class="quick-menu">
       <router-link id="search-shortcut" :to="{ name: 'browse' }"
         ><font-awesome-icon icon="fa-solid fa-search" /></router-link>
@@ -58,7 +58,7 @@ a#page-header:nth-child(4) {
   margin-bottom: 5px;
   margin-left: -5px;
   width: 100%;
-  height: 15vh;
+  height: 20vh;
  
   display: flex;
   justify-content: space-evenly;
@@ -69,10 +69,10 @@ a#page-header:nth-child(4) {
 
 }
 #page-header img {
-  filter: drop-shadow(0px 1px 15px #806819);
+  /* filter: drop-shadow(0px 1px 15px #806819); */
   height: 140px;
   margin-top: 10px;
-  animation: rotation 5s infinite linear;
+  /* animation: rotation 1s initial linear; */
 }
 
 #page-header nav :not(:first-child):before {
@@ -94,13 +94,15 @@ a#page-header:nth-child(4) {
   margin-right: 10px;
 }
 
-@keyframes rotation {
+/* @keyframes rotation {
   from {
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(359deg);
+    transform: rotate(360deg);
   }
-}
+} */
+
+
 
 </style>
