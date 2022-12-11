@@ -34,6 +34,9 @@ export default {};
 a {
   color: rgb(0, 0, 0);
 }
+a:hover {
+  color: rgb(221, 73, 19);;
+}
 
 #site-name {
   font-size: 8.5vh;
