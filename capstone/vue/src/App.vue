@@ -35,6 +35,6 @@ export default {
   "foot";
 }
 #view {
-  margin-top: 17vw;
+  margin-top: 15vw;
 }
 </style>

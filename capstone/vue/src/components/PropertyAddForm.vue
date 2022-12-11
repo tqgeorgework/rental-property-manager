@@ -88,7 +88,10 @@ input {
                     border-bottom: 1px solid #8D8D8D;
                     background-color: #f4f4f4fa;
                     padding: 0 16px;
+                    margin-top: 5px;
+                    margin-bottom: 5px;
                     color: #161616;
+                
                     transition: background-color 70ms cubic-bezier(.2,0,.38,.9),outline 70ms cubic-bezier(.2,0,.38,.9);
 }
                     :focus{
@@ -107,17 +110,20 @@ label{
 
 .save, .cancel{
  display: inline-block;
+ 
                 outline: 0;
                 border: none;
                 cursor: pointer;
                 padding: 0px 24px;
                 border-radius: 50px;
-                min-width: 200px;
+                min-width: 100px;
                 height: 50px;
                 font-size: 18px;
-                background-color: #fd0;
+                background-color: rgb(221, 73, 19);
                 font-weight: 500;
                 color: #222;
+                margin: 10px;
+                
 }
 textarea{
   width:400px;

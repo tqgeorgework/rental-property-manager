@@ -30,7 +30,7 @@ export default {};
   padding: 10px 30px 10px 30px;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   position: fixed;
-  margin-top: 52vh
+  margin-top: 49vh
 }
 #creators-container {
   display: flex;
