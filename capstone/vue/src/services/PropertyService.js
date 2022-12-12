@@ -18,7 +18,7 @@ export default {
         return axios.get('/properties/renterProperty')
     },
     updateProperty(property) {
-        return axios.put(`/properties/renterProperty}`, property)
+        return axios.put(`/properties/renterProperty`, property)
     }
 
 }
