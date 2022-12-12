@@ -118,7 +118,7 @@ public class JdbcPropertyDao implements PropertyDao {
         property.setPicURL(rs.getString("pic_url"));
         property.setSqFootage(rs.getInt("sq_footage"));
         property.setDescription(rs.getString("description"));
-        property.setLandlordID(rs.getInt("landlord_id"));
+//        property.setLandlordID(rs.getInt("landlord_id"));
         property.setRented(rs.getBoolean("is_rented"));
         property.setRentStatus(rs.getString("rent_status"));
         return property;

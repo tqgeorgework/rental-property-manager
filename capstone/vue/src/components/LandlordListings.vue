@@ -2,8 +2,8 @@
   <div id="property-card-container">
     <div
       class="property-card"
-      v-for="property in $store.state.properties"
-      :key="property.property_ID"
+      v-for="property in ownProperties"
+      :key="property.landlord_ID"
     >
       <property-small-detail :singleProperty="property"/>
       <p />
@@ -17,9 +17,16 @@ import PropertySmallDetail from "../components/PropertySmallDetail.vue";
 
 export default {
   components: { PropertySmallDetail },
+  data() {
+    return {
+      ownProperties: {
+
+      }
+    }
+  },
   created() {
     PropertyService.getOwnProperties().then((response) => {
-      this.$store.state.properties = response.data;
+      this.ownProperties = response.data;
     });
   },
   methods: {
