@@ -10,9 +10,11 @@
     </h1>
     <landlord-listings/>
     </div>
-    
+    <div id = "button">
     <button onclick="blur()" v-on:click="$store.state.showForm = true" v-if="!$store.state.showForm">Add Property</button>
     <property-add-form v-if="$store.state.showForm" />
+    </div>
+    
   </div>
   
 </template>
@@ -45,6 +47,10 @@ h1 {
   font-size: 44px;
 }
 
+#button {
+  display: flex;
+  align-items: center;
+}
 
 button {
   position: relative;

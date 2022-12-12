@@ -59,6 +59,7 @@ export default {
       PropertyService.addProperty(newProperty).then((response) => {
         if (response.status === 200) {
           this.$store.commit("ADD_PROPERTY", newProperty);
+          this.$router.push({name: 'profile'});
         }
       });
       this.resetForm();
@@ -133,6 +134,7 @@ button {
   position: relative;
   padding: 4px 20px;
   
+  
   font: 18px "Orbitron";
   letter-spacing:1px;
   text-transform: uppercase;
@@ -181,7 +183,6 @@ button:focus, button:active {
   background-image: radial-gradient(100% 75% at 50% 100%, #f58725 0%, #850600 100%);
   box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.4), inset 0 0 10px #850600, inset 0 3px 15px 0 #ae2000, inset 0 40px 0 0 rgba(254, 210, 98, 0.3), inset 0 20px 20px 0 rgba(248, 191, 69, 0.75), 0 0 0 8px #000, 0 9px 0 0 #444;
 }
-
 
 
 
