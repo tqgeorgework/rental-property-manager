@@ -6,7 +6,7 @@
     <div>{{ currentProperty.bedrooms }} Bed</div>
     <div>{{ currentProperty.bathrooms }} Bath</div>
     <div>{{ currentProperty.sqFootage }} Sq. Ft.</div>
-    <div>{{ currentProperty.description }}</div>
+    <div class="description">{{ currentProperty.description }}</div>
     <p />
   </div>
 </template>
@@ -61,4 +61,11 @@ div {
 img {
   width: 100vh;
 }
+
+.description {
+  margin: 10px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+
 </style>
