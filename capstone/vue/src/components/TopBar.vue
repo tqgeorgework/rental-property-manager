@@ -113,7 +113,7 @@ a#page-header:nth-child(4) {
 
 @keyframes rotation {
   80% {
-    transform: translateX(0px) rotateZ(0deg);
+    transform: translateX(0vw) rotateZ(0deg);
   }
   
   20% {
