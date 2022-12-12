@@ -117,11 +117,11 @@ a#page-header:nth-child(4) {
   }
   
   20% {
-    transform: translateX(22.5vw) rotateZ(360deg);
+    transform: translateX(22vw) rotateZ(360deg);
   }
   
   40% {
-    transform: translateX(22.5vw) rotateZ(360deg);
+    transform: translateX(22vw) rotateZ(360deg);
   }
 }
 
