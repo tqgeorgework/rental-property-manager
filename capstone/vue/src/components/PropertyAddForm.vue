@@ -35,7 +35,7 @@
       <textarea type="text" v-model="$store.state.newProperty.description" />
     </div>
     <div>
-      <button class="save" type="submit" value="Save"> save </button>
+      <button class="save" type="submit" > save </button>
       <button class="cancel" v-on:click="resetForm" type="button" value="Cancel"> Cancel </button>
     </div>
   </form>
