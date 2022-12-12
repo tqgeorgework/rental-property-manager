@@ -64,6 +64,20 @@ VALUES ('6993 Richfield Dr, Reynoldsburg, OH 43068', 2085, 3, 2, 'https://photos
 VALUES ('4311 Sidway Ave, Columbus, OH 43227', 1495, 3, 2, 'https://photos.zillowstatic.com/fp/c641c08fcf0c0ae3d0c7ba69345971a9-cc_ft_768.webp', 
 	   1218, 'description', 1);
 	   
+	   
+	   	   INSERT INTO property (address, price, bedrooms, bathrooms, pic_url, sq_footage, description, landlord_id)
+VALUES ('799 Warwick Dr, Westerville, OH 43082', 1097, 1, 1, 'https://photos.zillowstatic.com/fp/7352fea50dcb0374d96fc0b52a76756e-cc_ft_1152.webp', 
+	   1218, 'The Ravines at Westar', 2);
+	   	   INSERT INTO property (address, price, bedrooms, bathrooms, pic_url, sq_footage, description, landlord_id)
+VALUES ('4460 Mountain Laurel Dr, Hilliard, OH 43026', 1357, 2, 1, 'https://photos.zillowstatic.com/fp/c25d82fb7c7074086662319b667ec8bc-cc_ft_1152.webp', 
+	   912, 'description', 2);
+	   	   INSERT INTO property (address, price, bedrooms, bathrooms, pic_url, sq_footage, description, landlord_id)
+VALUES ('5260 Franklin St, Hilliard, OH 43026', 1461, 2, 2, 'https://photos.zillowstatic.com/fp/9c05c5e67a840c42af73c4a45c36add5-cc_ft_1152.webp', 
+	   723, 'description', 2);
+	   	   INSERT INTO property (address, price, bedrooms, bathrooms, pic_url, sq_footage, description, landlord_id)
+VALUES ('300 Springboro Ln, Columbus, OH 43235', 935, 3, 2, 'https://photos.zillowstatic.com/fp/61b78c36f0bc1655179d7eba822337f7-cc_ft_1152.webp', 
+	   300, 'description', 4);
+	   
 INSERT INTO property_users(property_id, renter_id)
 VALUES (1, 11);
 INSERT INTO property_users(property_id, renter_id)
