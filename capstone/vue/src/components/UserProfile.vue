@@ -3,6 +3,15 @@
     <div class="placeholder">
     Placeholder {{ $store.getters.role }}
     </div>
+
+    <div id="Renter Property">
+      <img :src="userProperty.picURL" />
+      <div>{{ userProperty.address }}</div>
+      <div>${{ userProperty.price }}/Month</div>
+      
+    </div> 
+
+    <div id="rentStatus">
       <br />
       <label :class="{ unpaid: !clicked, paid: clicked }"
         >Amount Due: {{ clicked ? "PAID" : "$" + userProperty.price }}
@@ -12,6 +21,8 @@
       <button :class="{ btnClicked: userProperty.rentStatus == 'PAID', btn: userProperty.rentStatus != 'PAID'}" v-on:click="updateRentStatus"  ><span>
         Pay Rent</span><img src="https://i.cloudup.com/2ZAX3hVsBE-3000x3000.png" height="62" width="62"></button> 
       </div>
+    </div>
+
     
   </div>
 </template>
@@ -19,6 +30,7 @@
 <script>
 import PropertyService from "../services/PropertyService";
 export default {
+  components: { },
   data() {
     return {
       clicked: false,
