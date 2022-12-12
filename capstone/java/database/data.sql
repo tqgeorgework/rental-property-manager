@@ -49,7 +49,7 @@ VALUES ('120 W Blake Ave, Columbus, OH 43202', 1575, 2, 1, 'https://photos.zillo
 	   1375, 'description', 1);
 	   
 	   INSERT INTO property (address, price, bedrooms, bathrooms, pic_url, sq_footage, description, landlord_id)
-VALUES ('2986 E Powell Rd, Columbus, OH 43240', 1950, 3, 2.5, 'https://photos.zillowstatic.com/fp/225e39d319a84f6e74b75180b2f48c4c-cc_ft_768.webp', 
+VALUES ('2986 E Powell Rd, Columbus, OH 43240', 1950, 3, 2.5, 'https://photos.zillowstatic.com/fp/f2d8bd5af6d962b66a38a47bdfdc9052-cc_ft_768.webp', 
 	   1800, 'description', 1);
 	   
 	   INSERT INTO property (address, price, bedrooms, bathrooms, pic_url, sq_footage, description, landlord_id)
