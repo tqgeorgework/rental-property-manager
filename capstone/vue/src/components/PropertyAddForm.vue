@@ -186,7 +186,7 @@ button:focus, button:active {
 
 
 textarea{
-  width:400px;
+  width: 250px;
   height: 130px;
   position: relative;
 }
