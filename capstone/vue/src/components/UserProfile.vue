@@ -9,7 +9,7 @@
       </label>
       <br />
       <div class="cont">
-      <button class="btn" v-on:click="updateRentStatus"><span>
+      <button :class="{ btnClicked: userProperty.rentStatus == 'PAID', btn: userProperty.rentStatus != 'PAID'}" v-on:click="updateRentStatus"  ><span>
         Pay Rent</span><img src="https://i.cloudup.com/2ZAX3hVsBE-3000x3000.png" height="62" width="62"></button> 
       </div>
     
@@ -75,6 +75,7 @@ export default {
     toggleClick() {
       this.clicked = !this.clicked;
     },
+    
   },
 
   created() {
@@ -101,6 +102,10 @@ label {
  position: fixed;
   top: 150px;
   margin-right: 120px;
+}
+
+.btnClicked {
+  display: none;
 }
 
 @-webkit-keyframes extend {
