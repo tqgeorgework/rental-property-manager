@@ -33,9 +33,11 @@ export default {};
 
 a {
   color: rgb(0, 0, 0);
+  text-decoration: none;
 }
 a:hover {
   color: rgb(221, 73, 19);;
+  text-decoration: underline;
 }
 
 #site-name {

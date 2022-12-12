@@ -37,8 +37,8 @@ App fee is $35 per adult and non-refundable
 -Pass full national credit & criminal background check at time of application', 1);
 
 INSERT INTO property (address, price, bedrooms, bathrooms, pic_url, sq_footage, description, landlord_id)
-VALUES ('5900 Sundrops Ave, Galloway, OH 43119', 1850, 3, 2, 'https://photos.zillowstatic.com/fp/225e39d319a84f6e74b75180b2f48c4c-cc_ft_768.webp', 
-	   1800, 'description', 1);
+VALUES ('1 Fearon Manor, Powell, Ohio 43015', 23500, 13, 8, 'https://www.gannett-cdn.com/presto/2018/09/10/PDEM/fb211df4-d0ef-4088-81c5-cfd11d2490e2-1.jpg', 
+	   1800, 'This is this house of Lord Stainton Fearon, First of his name and leige-lord of all that he surveys. You should mind your business. You already have enough information about this house. You do not need any more. You also cannot afford this. Please move along before we call security to move you along. Thank you in advance. Please do not come back under any circumstances - or unless your networth exceeds 178 million dollars.', 1);
 	   
 	   INSERT INTO property (address, price, bedrooms, bathrooms, pic_url, sq_footage, description, landlord_id)
 VALUES ('3169 Longspur Dr, Columbus, OH 43228, OH 43119', 1995, 3, 2, 'https://maps.googleapis.com/maps/api/streetview?location=3169+Longspur+Dr%2C+Columbus%2C+OH+43228&size=768x576&key=AIzaSyARFMLB1na-BBWf7_R3-5YOQQaHqEJf6RQ&source=outdoor&&signature=Ioyo7sKQiK8otDOvP0DAQI9csqc=', 
