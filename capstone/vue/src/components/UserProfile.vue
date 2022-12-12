@@ -18,7 +18,7 @@
       </label>
      
       <div class="cont">
-      <button :class="{ btnClicked: userProperty.rentStatus == 'PAID', btn: userProperty.rentStatus != 'PAID'}" v-on:click="updateRentStatus"  ><span>
+      <button :class="{ btnClicked: userProperty.rentStatus == 'PAID', btn: userProperty.rentStatus != 'PAID'}" v-on:click="(updateRentStatus, disabled, clicked=true)"  ><span>
         Pay Rent</span><img src="https://i.cloudup.com/2ZAX3hVsBE-3000x3000.png" height="62" width="62"></button> 
       </div>
     </div>
