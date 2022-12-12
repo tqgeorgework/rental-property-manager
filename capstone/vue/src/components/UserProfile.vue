@@ -1,27 +1,32 @@
 <template>
-  <div>
-    <div class="placeholder">
-    Placeholder {{ $store.getters.role }}
-    </div>
+  <div id = "grid">
+    <!-- <div class="placeholder">
+     {{ $store.getters.role }}
+    </div> -->
 
-    <div id="Renter Property">
-      <img :src="userProperty.picURL" />
+    <div id="renterProperty">
+      <!-- <img :src="userProperty.picURL" />
       <div>{{ userProperty.address }}</div>
-      <div>${{ userProperty.price }}/Month</div>
-      
+      <div>${{ userProperty.price }}/Month</div> -->
+      <property-small-detail :singleProperty="userProperty"/>
     </div> 
 
     <div id="rentStatus">
-      <br />
+      
       <label :class="{ unpaid: !clicked, paid: clicked }"
         >Amount Due: {{ clicked ? "PAID" : "$" + userProperty.price }}
       </label>
-      <br />
+     
       <div class="cont">
       <button :class="{ btnClicked: userProperty.rentStatus == 'PAID', btn: userProperty.rentStatus != 'PAID'}" v-on:click="updateRentStatus"  ><span>
         Pay Rent</span><img src="https://i.cloudup.com/2ZAX3hVsBE-3000x3000.png" height="62" width="62"></button> 
       </div>
     </div>
+
+    <div id = "maintenance">
+      
+
+      </div>
 
     
   </div>
@@ -29,8 +34,9 @@
 
 <script>
 import PropertyService from "../services/PropertyService";
+import PropertySmallDetail from './PropertySmallDetail.vue';
 export default {
-  components: { },
+  components: {PropertySmallDetail },
   data() {
     return {
       clicked: false,
@@ -97,6 +103,30 @@ export default {
 </script>
 
 <style scoped>
+
+#grid {
+  display: grid;
+  gap: 30px;
+  justify-content: center;
+  grid-template-areas:
+    "renterProperty rentStatus "
+    "maintenance maintenance";
+}
+
+#renterProperty {
+  grid-area: "renterProperty";
+}
+#rentStatus {
+  grid-area: "rentStatus";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+#maintenance {
+  grid-area: "maintenance";
+}
 .unpaid {
   color: red;
 }
@@ -119,6 +149,8 @@ label {
 .btnClicked {
   display: none;
 }
+
+
 
 @-webkit-keyframes extend {
     0% {
@@ -217,12 +249,12 @@ input, button, submit {
     }
 
 .cont {
-    position: absolute;
-    width: 300px;
+    /* position: ; */
+    /* width: 300px;
     height: 5px;
     left: 50%;
     top: 50%;
-    margin: -100px 0 0 -300px
+    margin: -100px 0 0 -300px */
     }
 
 button {
