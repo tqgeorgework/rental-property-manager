@@ -2,7 +2,7 @@
   <div id = "grid">
    
     <div id="renterProperty">
-      
+      <h1> Your Home </h1>
       <property-small-detail :singleProperty="userProperty" id="propdetails"/>
     </div> 
 
@@ -111,6 +111,10 @@ export default {
 
 #renterProperty {
   grid-area: "renterProperty";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 22px;
 }
 #rentStatus {
   grid-area: "rentStatus";
