@@ -3,18 +3,29 @@
 
     <div> <span style='font-size:1.5em;'></span>
     <!-- {{ $store.getters.role }} -->
+    
+    <div>
+      <h1>
+    Your Properties:
+    </h1>
+    <landlord-listings/>
+    </div>
+    
     <button onclick="blur()" v-on:click="$store.state.showForm = true" v-if="!$store.state.showForm">Add Property</button>
     <property-add-form v-if="$store.state.showForm" />
   </div>
   
 </template>
 <script>
+import LandlordListings from './LandlordListings.vue';
 import PropertyAddForm from "./PropertyAddForm.vue";
 
 export default {
-  components: { PropertyAddForm },
-  name: "landlord-profile",
+  components: { PropertyAddForm, LandlordListings},
+  name: "landlord-profile"
+  
 };
+
 </script>
 
 <style scoped>
