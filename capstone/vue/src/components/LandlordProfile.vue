@@ -1,11 +1,13 @@
+
 <template>
-  <div> <span style='font-size:1.5em;'></span>
+
+    <div> <span style='font-size:1.5em;'></span>
     <!-- {{ $store.getters.role }} -->
     <button onclick="blur()" v-on:click="$store.state.showForm = true" v-if="!$store.state.showForm">Add Property</button>
     <property-add-form v-if="$store.state.showForm" />
   </div>
+  
 </template>
-
 <script>
 import PropertyAddForm from "./PropertyAddForm.vue";
 
@@ -16,6 +18,9 @@ export default {
 </script>
 
 <style scoped>
+
+
+
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap");
 div {
   display: flex;
@@ -25,14 +30,7 @@ div {
 
 }
 
-body {
-  background: #111;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 
 button {
   position: relative;
