@@ -19,4 +19,9 @@ export default {
   div {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   }
+
+
+  img {
+    width: 30vw;
+  }
 </style>

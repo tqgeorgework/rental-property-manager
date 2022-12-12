@@ -1,25 +1,22 @@
 <template>
   <div id = "grid">
-    <!-- <div class="placeholder">
-     {{ $store.getters.role }}
-    </div> -->
-
+   
     <div id="renterProperty">
-      <!-- <img :src="userProperty.picURL" />
-      <div>{{ userProperty.address }}</div>
-      <div>${{ userProperty.price }}/Month</div> -->
-      <property-small-detail :singleProperty="userProperty"/>
+      
+      <property-small-detail :singleProperty="userProperty" id="propdetails"/>
     </div> 
 
     <div id="rentStatus">
       
-      <label :class="{ unpaid: !clicked, paid: clicked }"
+      <label id="amount-due" :class="{ unpaid: !clicked, paid: clicked }"
         >Amount Due: {{ clicked ? "PAID" : "$" + userProperty.price }}
       </label>
      
       <div class="cont">
-      <button :class="{ btnClicked: userProperty.rentStatus == 'PAID', btn: userProperty.rentStatus != 'PAID'}" v-on:click="(updateRentStatus(), disabled, clicked = true)"  ><span>
-        Pay Rent</span><img src="https://i.cloudup.com/2ZAX3hVsBE-3000x3000.png" height="62" width="62"></button> 
+      <button :class="{ btnClicked: userProperty.rentStatus == 'PAID', btn: userProperty.rentStatus != 'PAID'}" v-on:click="(updateRentStatus(), disabled, clicked = true)"  >
+        <span>Pay Rent</span>
+        
+        <img src="https://i.cloudup.com/2ZAX3hVsBE-3000x3000.png" height="62" width="62"></button> 
       </div>
     </div>
 
@@ -313,5 +310,20 @@ button:focus > img {
     /* Chrome, Safari, Opera */
     animation-fill-mode: forwards
     }
+
+#amount-due {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 26px;
+  margin: 35px;
+}
+
+#rentStatus {
+
+
+}
+
+
 
 </style>
