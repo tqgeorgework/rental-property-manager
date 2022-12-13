@@ -12,7 +12,7 @@
         >Amount Due: {{ clicked ? "PAID" : "$" + userProperty.price }}
       </label>
      
-      <div class="cont">
+      <div :class="{visible: !clicked, invisible: clicked}">
       <button :class="{ btnClicked: userProperty.rentStatus == 'PAID', btn: userProperty.rentStatus != 'PAID'}" v-on:click="(updateRentStatus(), disabled, clicked = true)"  >
         <span>Pay Rent</span>
         
@@ -230,6 +230,7 @@ label {
         } 100% {
         opacity: 1;
         }
+      
     }
 @keyframes appear {
     0% {
@@ -239,6 +240,7 @@ label {
         } 100% {
         opacity: 1;
         }
+     
     }
 html {
     background: #fff
@@ -322,6 +324,20 @@ button:focus > img {
   font-size: 26px;
   margin: 35px;
 }
+
+.invisible{
+  animation: hideAnimation 0s ease-in 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes hideAnimation {
+  to {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+}
+
 
 #rentStatus {
 
