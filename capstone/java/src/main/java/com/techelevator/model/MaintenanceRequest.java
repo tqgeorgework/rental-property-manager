@@ -4,13 +4,13 @@ package com.techelevator.model;
 import java.time.LocalDate;
 
 public class MaintenanceRequest {
-    String title;
-    String description;
-    int requestID;
-    int workerID;
-    int propertyID;
-    LocalDate date;
-    String status;
+    private String title;
+    private String description;
+    private int requestID;
+    private int workerID;
+    private int propertyID;
+    private LocalDate date;
+    private String status;
 
     public MaintenanceRequest(){}
 
