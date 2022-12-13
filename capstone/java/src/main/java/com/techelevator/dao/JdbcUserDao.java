@@ -82,6 +82,17 @@ public class JdbcUserDao implements UserDao {
         return jdbcTemplate.update(insertUserSql, username, password_hash, ssRole, name) == 1;
     }
 
+    public List<User> findAllMaintenanceWorkers() {
+        List<User> workers = new ArrayList<>();
+
+        String sql = "SELECT * FROM users WHERE role = 'ROLE_MAINTENANCE'";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while (results.next()) {
+            User user = mapRowToUser(results);
+            workers.add(user);
+        }
+        return workers;
+    }
 
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();
@@ -93,4 +104,6 @@ public class JdbcUserDao implements UserDao {
         user.setActivated(true);
         return user;
     }
+
+
 }
