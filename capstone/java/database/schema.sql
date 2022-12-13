@@ -53,7 +53,7 @@ description varchar(1000) NOT NULL,
 CONSTRAINT PK_maintenance PRIMARY KEY (request_id),
 CONSTRAINT FK_maintenance_worker FOREIGN KEY (worker_id) REFERENCES users (user_id),
 CONSTRAINT FK_maintenance_property FOREIGN KEY (property_id) REFERENCES property (property_id),
-CONSTRAINT CK_maintenance_status CHECK (maintenance_status IN ('RECEIVED', 'IN_PROGRESS', 'COMPLETE'))
+CONSTRAINT CK_maintenance_status CHECK (maintenance_status IN ('RECEIVED', 'IN PROGRESS', 'COMPLETE'))
 
 );
 

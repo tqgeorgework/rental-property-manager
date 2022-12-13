@@ -23,7 +23,7 @@ public class JdbcMaintenanceDao implements MaintenanceDao {
     public boolean createRequest(MaintenanceRequest request){
         String sql = "INSERT INTO maintenance (title, property_id, description) VALUES (?, ?, ?)";
         try {
-            jdbcTemplate.update(sql, request.getTitle(), request.getDate(), request.getPropertyID(), request.getDescription());
+            jdbcTemplate.update(sql, request.getTitle(), request.getPropertyID(), request.getDescription());
         } catch(DataAccessException e) {
             System.err.println("Error posting to the database." + e.getMessage());
             e.printStackTrace();

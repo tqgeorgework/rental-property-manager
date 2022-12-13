@@ -2,11 +2,11 @@
   <form id="addMaintenanceRequest" v-on:submit.prevent="addMaintenanceRequest">
     <div>
       <label>Problem:</label>
-      <input type="text" v-model="$store.state.newRequest.title" />
+      <input type="text" v-model="newRequest.title" required/>
     </div>
     <div>
       <label>Description:</label>
-      <textarea type="text" v-model="$store.state.newRequest.description" />
+      <textarea type="text" v-model="newRequest.description" />
     </div>
     <div>
       <button class="save" type="submit">Submit maintenance request</button>
@@ -27,12 +27,19 @@ import MaintenanceService from "../services/MaintenanceService";
 import PropertyService from "../services/PropertyService";
 
 export default {
+  data() {
+    return {
+ newRequest: {
+   propertyID: ""
+ },
+    }
+  },
   methods: {
     addMaintenanceRequest() {
       PropertyService.getPropertyByRenter().then((response) => {
-        this.$store.state.newRequest.propertyID = response.data.propertyID;
+        this.newRequest.propertyID = response.data.propertyID;
       })
-      let newRequest = this.$store.state.newRequest;
+      let newRequest = this.newRequest;
       MaintenanceService.createRequest(newRequest).then((response) => {
         if (response.status === 200) {
           this.$store.commit("ADD_REQUEST", newRequest);

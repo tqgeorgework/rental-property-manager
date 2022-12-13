@@ -11,6 +11,7 @@
       <label id="amount-due" :class="{ unpaid: !clicked, paid: clicked }"
         >Amount Due: {{ clicked ? "PAID" : "$" + userProperty.price }}
       </label>
+      
      
       <div :class="{visible: !clicked, invisible: clicked}">
       <button id="payRent" :class="{ btnClicked: userProperty.rentStatus == 'PAID', btn: userProperty.rentStatus != 'PAID'}" v-on:click="(updateRentStatus(), disabled, clicked = true)"  >
@@ -21,7 +22,7 @@
     </div>
 
     <div id = "maintenance">
-      <button v-on:click="store.state.showForm = true"></button>
+      <button v-on:click="$store.state.showForm = true" v-if="$store.state.showForm == false">Submit maintenance request</button>
       <maintenance-request-form v-if="$store.state.showForm" />
     </div>
 
@@ -339,13 +340,6 @@ img {
     height: 0;
   }
 }
-
-
-#rentStatus {
-
-
-}
-
 
 
 </style>
