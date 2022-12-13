@@ -2,9 +2,9 @@
   <header id="page-header">
     <nav>
     <router-link :to="{ name: 'profile' }">Profile</router-link>
-    <router-link :to="{ name: 'login' }" v-if="$store.state.token == ''">Login / Register</router-link>
-    <router-link :to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-    <router-link :to="{ name: 'listings' }">Browse Listings</router-link>
+    <router-link :to="{ name: 'login' }" v-if="$store.state.token == ''">Login / Register</router-link> &nbsp; | &nbsp;
+    <router-link :to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link> &nbsp; | &nbsp;
+    <router-link :to="{ name: 'listings' }">Browse Listings</router-link> &nbsp; | &nbsp;
     <router-link :to="{ name: 'maintenance' }" v-if="$store.state.token != ''">Maintenance</router-link>
     </nav>
     <img src="../../img/OrgLogo.png" />
@@ -84,7 +84,6 @@ a#page-header:nth-child(4) {
 }
 
 #page-header nav :not(:first-child):before {
-  content: "|";
   padding-right: 10px;
 }
 #page-header nav a {
