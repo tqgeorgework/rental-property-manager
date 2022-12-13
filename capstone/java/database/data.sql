@@ -102,7 +102,6 @@ VALUES ('handrail broken', 6, 1, 'IN_PROGRESS', 'handrail going upstairs is brok
 INSERT INTO maintenance(title, worker_id, property_id, maintenance_status, description)
 VALUES ('washing machine broken', 7, 2, 'COMPLETE','Washing machine will not turn off.');
 
-select * from maintenance
 
 COMMIT TRANSACTION;
 
