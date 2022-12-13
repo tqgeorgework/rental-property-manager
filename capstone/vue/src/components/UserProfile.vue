@@ -23,7 +23,7 @@
 
     <div id = "maintenance">
       <button v-on:click="$store.state.showForm = true" v-if="$store.state.showForm == false">Submit maintenance request</button>
-      <maintenance-request-form v-if="$store.state.showForm" />
+      <maintenance-request-form v-if="$store.state.showForm"  :singleProperty="userProperty"/>
     </div>
 
     

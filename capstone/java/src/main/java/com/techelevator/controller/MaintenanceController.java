@@ -2,6 +2,7 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.MaintenanceDao;
 import com.techelevator.model.MaintenanceRequest;
+import com.techelevator.model.RequestDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -23,8 +24,8 @@ public class MaintenanceController {
 
 
     @PostMapping("/new")
-    public boolean createRequest(@RequestBody MaintenanceRequest maintenanceRequest) {
-        return maintenanceDao.createRequest(maintenanceRequest);
+    public boolean createRequest(@RequestBody RequestDTO request) {
+        return maintenanceDao.createRequest(request);
     }
 
     @GetMapping

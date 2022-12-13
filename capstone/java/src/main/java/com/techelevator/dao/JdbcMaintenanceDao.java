@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.MaintenanceRequest;
+import com.techelevator.model.RequestDTO;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -20,7 +21,7 @@ public class JdbcMaintenanceDao implements MaintenanceDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public boolean createRequest(MaintenanceRequest request){
+    public boolean createRequest(RequestDTO request){
         String sql = "INSERT INTO maintenance (title, property_id, description) VALUES (?, ?, ?)";
         try {
             jdbcTemplate.update(sql, request.getTitle(), request.getPropertyID(), request.getDescription());
