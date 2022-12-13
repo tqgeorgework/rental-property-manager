@@ -38,7 +38,7 @@ App fee is $35 per adult and non-refundable
 
 INSERT INTO property (address, price, bedrooms, bathrooms, pic_url, sq_footage, description, landlord_id)
 VALUES ('1 Fearon Manor, Powell, Ohio 43015', 23500, 13, 8, 'https://www.gannett-cdn.com/presto/2018/09/10/PDEM/fb211df4-d0ef-4088-81c5-cfd11d2490e2-1.jpg', 
-	   1800, 'This is this house of Lord Stainton Fearon, First of his name and leige-lord of all that he surveys. You should mind your business. You already have enough information about this house. You do not need any more. You also cannot afford this. Please move along before we call security to move you along. Thank you in advance. Please do not come back under any circumstances - or, unless your networth exceeds 478 million dollars.', 1);
+	   1800, 'This is this house of Lord Stainton Fearon, First of his name and leige-lord of all that he surveys. You should mind your business. You already have enough information about this house. You do not need any more. You also cannot afford this. Please move along before we call security to move you along. Thank you in advance. Please do not come back under any circumstances - or unless your networth exceeds 178 million dollars.', 1);
 	   
 	   INSERT INTO property (address, price, bedrooms, bathrooms, pic_url, sq_footage, description, landlord_id)
 VALUES ('3169 Longspur Dr, Columbus, OH 43228, OH 43119', 1995, 3, 2, 'https://maps.googleapis.com/maps/api/streetview?location=3169+Longspur+Dr%2C+Columbus%2C+OH+43228&size=768x576&key=AIzaSyARFMLB1na-BBWf7_R3-5YOQQaHqEJf6RQ&source=outdoor&&signature=Ioyo7sKQiK8otDOvP0DAQI9csqc=', 
@@ -64,10 +64,7 @@ VALUES ('6993 Richfield Dr, Reynoldsburg, OH 43068', 2085, 3, 2, 'https://photos
 VALUES ('4311 Sidway Ave, Columbus, OH 43227', 1495, 3, 2, 'https://photos.zillowstatic.com/fp/c641c08fcf0c0ae3d0c7ba69345971a9-cc_ft_768.webp', 
 	   1218, 'description', 1);
 	   
-	INSERT INTO property (address, price, bedrooms, bathrooms, pic_url, sq_footage, description, landlord_id)
-VALUES ('1 Fearon Manor, Powell, Ohio 43015', 23500, 13, 8, 'https://www.gannett-cdn.com/presto/2018/09/10/PDEM/fb211df4-d0ef-4088-81c5-cfd11d2490e2-1.jpg', 
-	   1800, 'This is this house of Lord Stainton Fearon, First of his name and leige-lord of all that he surveys. You should mind your business. You already have enough information about this house. You do not need any more. You also cannot afford this. Please move along before we call security to move you along. Thank you in advance. Please do not come back under any circumstances - or, unless your networth exceeds 478 million dollars.', 2);
-		   
+	   
 	   	   INSERT INTO property (address, price, bedrooms, bathrooms, pic_url, sq_footage, description, landlord_id)
 VALUES ('799 Warwick Dr, Westerville, OH 43082', 1097, 1, 1, 'https://photos.zillowstatic.com/fp/7352fea50dcb0374d96fc0b52a76756e-cc_ft_1152.webp', 
 	   1218, 'The Ravines at Westar', 2);
@@ -101,10 +98,13 @@ VALUES ('light fixture broken', 3,  'the light is flickering. Not the bulb.' );
 INSERT INTO maintenance(title,  property_id, description)
 VALUES ('hole in wall', 4, 'My name is Kyle. I get mad sometimes.' );
 INSERT INTO maintenance(title, worker_id, property_id, maintenance_status, description)
-VALUES ('handrail broken', 6, 1, 'IN_PROGRESS', 'handrail going upstairs is broken.' );
+VALUES ('handrail broken', 6, 1, 'IN PROGRESS', 'handrail going upstairs is broken.' );
 INSERT INTO maintenance(title, worker_id, property_id, maintenance_status, description)
 VALUES ('washing machine broken', 7, 2, 'COMPLETE','Washing machine will not turn off.');
-
+INSERT INTO maintenance(title, worker_id, property_id, maintenance_status, description)
+VALUES ('dryer broken', 7, 2, 'COMPLETE','dryer will not turn off.');
+INSERT INTO maintenance(title, worker_id, property_id, maintenance_status, description)
+VALUES ('stove broken', 7, 3, 'IN PROGRESS','stove will not turn on.');
 
 COMMIT TRANSACTION;
 
