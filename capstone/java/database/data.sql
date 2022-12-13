@@ -6,7 +6,6 @@ INSERT INTO users (username,password_hash,role, name) VALUES ('landlord3','$2a$0
 INSERT INTO users (username,password_hash,role, name) VALUES ('landlord4','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_LANDLORD', 'joanna');
 INSERT INTO users (username,password_hash,role, name) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN', 'jonny5');
 
-INSERT INTO users (user_id,username,password_hash,role, name) VALUES (0, 'maintenance0', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'ROLE_MAINTENANCE', 'unassigned');
 INSERT INTO users (username,password_hash,role, name) VALUES ('maintenance1','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_MAINTENANCE', 'jo');
 INSERT INTO users (username,password_hash,role, name) VALUES ('maintenance2','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_MAINTENANCE', 'joe');
 INSERT INTO users (username,password_hash,role, name) VALUES ('maintenance3','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_MAINTENANCE', 'joseph');
@@ -90,15 +89,20 @@ VALUES (2, 14);
 INSERT INTO property_users(property_id, renter_id)
 VALUES (3, 15);
 	   
-INSERT INTO maintenance(title, request_id, worker_id, request_date, property_id, maintenance_status, description)
-VALUES ('leaky roof', 1, 0, NOW(), 1, 'RECEIVED', 'my shit is leaking dammit!' );
-INSERT INTO maintenance(title, request_id, worker_id, request_date, property_id, maintenance_status, description)
-VALUES ('toilet not flushing', 2, 0, NOW(), 2, 'RECEIVED', 'poop is stuck in my toilet' );
-INSERT INTO maintenance(title, request_id, worker_id, request_date, property_id, maintenance_status, description)
-VALUES ('light fixture broken', 3, 0, NOW(), 3, 'RECEIVED', 'the light is flickering. Not the bulb.' );
-INSERT INTO maintenance(title, request_id, worker_id, request_date, property_id, maintenance_status, description)
-VALUES ('hole in wall', 4, 0, NOW(), 4, 'RECEIVED', 'My name is Kyle. I get mad sometimes.' );
+INSERT INTO maintenance(title, property_id, description)
+VALUES ('leaky roof', 1,  'my roof in the living room is leaking!' );
+INSERT INTO maintenance(title,  property_id, description)
+VALUES ('toilet not flushing', 2,  'downstairs toilet seems to be clogged' );
+INSERT INTO maintenance(title, property_id, description)
+VALUES ('light fixture broken', 3,  'the light is flickering. Not the bulb.' );
+INSERT INTO maintenance(title,  property_id, description)
+VALUES ('hole in wall', 4, 'My name is Kyle. I get mad sometimes.' );
+INSERT INTO maintenance(title, worker_id, property_id, maintenance_status, description)
+VALUES ('handrail broken', 6, 1, 'IN_PROGRESS', 'handrail going upstairs is broken.' );
+INSERT INTO maintenance(title, worker_id, property_id, maintenance_status, description)
+VALUES ('washing machine broken', 7, 2, 'COMPLETE','Washing machine will not turn off.');
 
+select * from maintenance
 
 COMMIT TRANSACTION;
 
