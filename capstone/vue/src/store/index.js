@@ -21,8 +21,9 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     properties: [],
-    newProperty: {
-    },
+    newProperty: {},
+    requests: [],
+    newRequest: {},
     showForm: false
   },
   mutations: {
@@ -47,6 +48,12 @@ export default new Vuex.Store({
     },
     UPDATE_PROPERTY(state, property) {
       state.properties.property = property;
+    },
+    ADD_REQUEST(state, request) {
+      state.requests.push(request);
+    },
+    UPDATE_REQUEST(state, request) {
+      state.requests.request = request;
     }
   },
   getters: {
@@ -59,6 +66,11 @@ export default new Vuex.Store({
     property(state, propertyID) {
       state.properties.find(property => {
         property.propertyID === propertyID;
+      })
+    },
+    request(state, requestID) {
+      state.requests.find(request => {
+        request.requestID === requestID;
       })
     }
   },

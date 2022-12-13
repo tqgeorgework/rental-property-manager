@@ -1,13 +1,18 @@
-vue<template>
+<template>
   <div>
-    Placeholder Maintenance Page
+    <maintenance-request-form  />
+    
   </div>
 </template>
 
 <script>
+import MaintenanceRequestForm from '../components/MaintenanceRequestForm.vue';
 export default {
-
+components: {
+  MaintenanceRequestForm}
+  
 }
+
 </script>
 
 <style>

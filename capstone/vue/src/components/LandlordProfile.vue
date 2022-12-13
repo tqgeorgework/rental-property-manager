@@ -1,6 +1,7 @@
 
 <template>
 
+
     <div> <span style='font-size:1.5em;'></span>
     <!-- {{ $store.getters.role }} -->
     
