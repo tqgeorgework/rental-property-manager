@@ -59,7 +59,7 @@ export default {
       PropertyService.addProperty(newProperty).then((response) => {
         if (response.status === 200) {
           this.$store.commit("ADD_PROPERTY", newProperty);
-          this.$router.push({name: 'profile'});
+          this.$router.push({ name: 'profile' });
         }
       });
       this.resetForm();

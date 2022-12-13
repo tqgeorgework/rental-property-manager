@@ -21,7 +21,7 @@ public class JdbcMaintenanceDao implements MaintenanceDao {
     }
 
     public boolean createRequest(MaintenanceRequest request){
-        String sql = "INSERT INTO maintenance (title, request_date, property_id, description) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO maintenance (title, property_id, description) VALUES (?, ?, ?)";
         try {
             jdbcTemplate.update(sql, request.getTitle(), request.getDate(), request.getPropertyID(), request.getDescription());
         } catch(DataAccessException e) {
@@ -32,7 +32,7 @@ public class JdbcMaintenanceDao implements MaintenanceDao {
         return true;
     }
     public MaintenanceRequest getRequestByRequestID(int requestID){
-        String sql = "SELECT * FROM maintenance WHERE request_id = ?";
+        String sql = "SELECT * FROM maintenance WHERE request_id = ? ORDER BY request_date ASC";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, requestID);
         if (results.next()) {
             return mapRowToMaintenanceRequest(results);
@@ -42,7 +42,7 @@ public class JdbcMaintenanceDao implements MaintenanceDao {
     }
     public List<MaintenanceRequest> getRequestsByPropertyID(int propertyID){
         List<MaintenanceRequest> requests = new ArrayList<>();
-        String sql = "SELECT * FROM maintenance WHERE property_id = ?";
+        String sql = "SELECT * FROM maintenance WHERE property_id = ? ORDER BY request_date ASC";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, propertyID);
         while (results.next()) {
             requests.add(mapRowToMaintenanceRequest(results));
@@ -50,19 +50,61 @@ public class JdbcMaintenanceDao implements MaintenanceDao {
         return requests;
     }
     public List<MaintenanceRequest> getRequestsByPrincipal(Principal principal){
-        return null;
+        List<MaintenanceRequest> requests = new ArrayList<>();
+        String sql = "SELECT * FROM maintenance AS m" +
+                    " JOIN users AS u ON m.worker_id = u.user_id" +
+                    " WHERE username = ? ORDER BY request_date ASC";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, principal.getName());
+        while (results.next()) {
+            requests.add(mapRowToMaintenanceRequest(results));
+        }
+
+        return requests;
     }
     public List<MaintenanceRequest> getAllRequests(){
-        return null;
+        List<MaintenanceRequest> requests = new ArrayList<>();
+        String sql = "SELECT * FROM maintenance ORDER BY request_date ASC;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+
+        while (results.next()) {
+            requests.add(mapRowToMaintenanceRequest(results));
+        }
+
+        return requests;
     }
-    public boolean assignWorker(int workerID){
-        return false;
+    public boolean assignWorker(int workerID, int requestID) {
+        String sql = "UPDATE maintenance SET worker_id = ? WHERE request_id = ?";
+        String sql2 = "UPDATE maintenance SET maintenance_status = 'IN_PROGRESS' WHERE request_id = ?";
+        try {
+            jdbcTemplate.update(sql, workerID, requestID);
+            jdbcTemplate.update(sql2, requestID);
+        } catch(DataAccessException e) {
+            System.err.println("Error posting to the database." + e.getMessage());
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
-    public boolean updateStatus(int requestID){
-        return false;
+    public boolean markComplete(int requestID) {
+        String sql = "UPDATE maintenance SET maintenance_status = 'COMPLETE' WHERE request_id = ?'";
+        try {
+            jdbcTemplate.update(sql, requestID);
+        } catch(DataAccessException e) {
+            System.err.println("Error posting to the database." + e.getMessage());
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
     public List<MaintenanceRequest> getRequestsByStatus(String status){
-        return null;
+        List<MaintenanceRequest> requests = new ArrayList<>();
+        String sql = "SELECT * FROM maintenance WHERE maintenance_status = ? ORDER BY request_date ASC;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, status);
+
+        while (results.next()) {
+            requests.add(mapRowToMaintenanceRequest(results));
+        }
+        return requests;
     }
     private MaintenanceRequest mapRowToMaintenanceRequest(SqlRowSet rs) {
 
