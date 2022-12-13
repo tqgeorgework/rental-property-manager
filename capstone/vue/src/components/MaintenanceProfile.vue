@@ -1,5 +1,5 @@
 <template>
-  <div>Placeholder {{$store.getters.role}}
+  <div>
     <maintenance-request-list/>
   </div>
   
