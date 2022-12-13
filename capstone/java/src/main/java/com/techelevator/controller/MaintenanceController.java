@@ -42,12 +42,12 @@ public class MaintenanceController {
         }
     }
 
-    @GetMapping("/Property/{ID}")
+    @GetMapping("/property/{ID}")
     public List<MaintenanceRequest> getRequestsByPropertyID(@PathVariable int ID) {
         return maintenanceDao.getRequestsByPropertyID(ID);
     }
 
-    @GetMapping("/Property/Own")
+    @GetMapping("/property/own")
     public List<MaintenanceRequest> getRequestsByPropertyPrincipal(Principal principal) {
         return maintenanceDao.getRequestsByPrincipal(principal);
     }
