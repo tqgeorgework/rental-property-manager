@@ -13,7 +13,7 @@
       </label>
      
       <div :class="{visible: !clicked, invisible: clicked}">
-      <button :class="{ btnClicked: userProperty.rentStatus == 'PAID', btn: userProperty.rentStatus != 'PAID'}" v-on:click="(updateRentStatus(), disabled, clicked = true)"  >
+      <button id="payRent" :class="{ btnClicked: userProperty.rentStatus == 'PAID', btn: userProperty.rentStatus != 'PAID'}" v-on:click="(updateRentStatus(), disabled, clicked = true)"  >
         <span>Pay Rent</span>
         
         <img src="https://i.cloudup.com/2ZAX3hVsBE-3000x3000.png" height="62" width="62"></button> 
@@ -21,7 +21,8 @@
     </div>
 
     <div id = "maintenance">
-      
+      <button v-on:click="store.state.showForm = true"></button>
+      <maintenance-request-form v-if="$store.state.showForm" />
     </div>
 
     
@@ -29,10 +30,11 @@
 </template>
 
 <script>
+import MaintenanceRequestForm from "../components/MaintenanceRequestForm.vue";
 import PropertyService from "../services/PropertyService";
 import PropertySmallDetail from './PropertySmallDetail.vue';
 export default {
-  components: {PropertySmallDetail },
+  components: {PropertySmallDetail, MaintenanceRequestForm},
   data() {
     return {
       clicked: false,
@@ -259,7 +261,7 @@ input, button, submit {
     margin: -100px 0 0 -300px */
     }
 
-button {
+#payRent {
     border-width: 1px;
     width: 300px;
     height: 100px;
@@ -270,7 +272,7 @@ button {
     border: 5px solid #6fb07f;
     }
 
-button > span {
+#payRent  > span {
     font-size: 48px;
     color: #6fb07f
     }
@@ -287,7 +289,7 @@ img {
     opacity: 0
     }
 
-button:focus {
+#payRent:focus {
     /*animation*/
     -webkit-animation: extend 1s ease-in-out;
     -ms-animation: extend 1s ease-in-out;
@@ -297,7 +299,7 @@ button:focus {
     animation-fill-mode: forwards
     }
 
-button:focus > span {
+#payRent:focus > span {
     /*animation*/
     -webkit-animation: disappear 1s ease-in-out;
     -ms-animation: disappear 1s ease-in-out;
@@ -307,7 +309,7 @@ button:focus > span {
     animation-fill-mode: forwards
     }
 
-button:focus > img {
+#payRent:focus > img {
     /*animation*/
     -webkit-animation: appear 1s ease-in-out;
     -ms-animation: appear 1s ease-in-out;
@@ -326,7 +328,7 @@ button:focus > img {
 }
 
 .invisible{
-  animation: hideAnimation 0s ease-in 2s;
+  animation: hideAnimation 0s ease-in 3s;
   animation-fill-mode: forwards;
 }
 
