@@ -1,9 +1,15 @@
 <template>
-  <div>Placeholder {{$store.getters.role}}</div>
+  <div>Placeholder {{$store.getters.role}}
+    <maintenance-request-list/>
+  </div>
+  
 </template>
 
 <script>
+import MaintenanceRequestList from './MaintenanceRequestList.vue'
+
 export default {
+  components: { MaintenanceRequestList },
 
 }
 </script>
