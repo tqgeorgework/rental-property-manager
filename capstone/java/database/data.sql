@@ -6,6 +6,7 @@ INSERT INTO users (username,password_hash,role, name) VALUES ('landlord3','$2a$0
 INSERT INTO users (username,password_hash,role, name) VALUES ('landlord4','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_LANDLORD', 'joanna');
 INSERT INTO users (username,password_hash,role, name) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN', 'jonny5');
 
+INSERT INTO users (user_id,username,password_hash,role, name) VALUES (0, 'maintenance0', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'ROLE_MAINTENANCE', 'unassigned');
 INSERT INTO users (username,password_hash,role, name) VALUES ('maintenance1','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_MAINTENANCE', 'jo');
 INSERT INTO users (username,password_hash,role, name) VALUES ('maintenance2','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_MAINTENANCE', 'joe');
 INSERT INTO users (username,password_hash,role, name) VALUES ('maintenance3','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_MAINTENANCE', 'joseph');
@@ -76,7 +77,7 @@ VALUES ('5260 Franklin St, Hilliard, OH 43026', 1461, 2, 2, 'https://photos.zill
 	   723, 'description', 2);
 	   	   INSERT INTO property (address, price, bedrooms, bathrooms, pic_url, sq_footage, description, landlord_id)
 VALUES ('300 Springboro Ln, Columbus, OH 43235', 935, 3, 2, 'https://photos.zillowstatic.com/fp/61b78c36f0bc1655179d7eba822337f7-cc_ft_1152.webp', 
-	   300, 'description', 4);
+	   300, 'description', 1);
 	   
 INSERT INTO property_users(property_id, renter_id)
 VALUES (1, 11);
@@ -89,7 +90,15 @@ VALUES (2, 14);
 INSERT INTO property_users(property_id, renter_id)
 VALUES (3, 15);
 	   
-	  
+INSERT INTO maintenance(title, request_id, worker_id, request_date, property_id, maintenance_status, description)
+VALUES ('leaky roof', 1, 0, NOW(), 1, 'RECEIVED', 'my shit is leaking dammit!' );
+INSERT INTO maintenance(title, request_id, worker_id, request_date, property_id, maintenance_status, description)
+VALUES ('toilet not flushing', 2, 0, NOW(), 2, 'RECEIVED', 'poop is stuck in my toilet' );
+INSERT INTO maintenance(title, request_id, worker_id, request_date, property_id, maintenance_status, description)
+VALUES ('light fixture broken', 3, 0, NOW(), 3, 'RECEIVED', 'the light is flickering. Not the bulb.' );
+INSERT INTO maintenance(title, request_id, worker_id, request_date, property_id, maintenance_status, description)
+VALUES ('hole in wall', 4, 0, NOW(), 4, 'RECEIVED', 'My name is Kyle. I get mad sometimes.' );
 
 
 COMMIT TRANSACTION;
+

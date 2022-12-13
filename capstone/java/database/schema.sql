@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users, property CASCADE;
+DROP TABLE IF EXISTS users, property, property_users, maintenance CASCADE;
 
 
 CREATE TABLE users (
@@ -40,6 +40,21 @@ CREATE TABLE property_users (
 	renter_id int,
 	CONSTRAINT FK_property_id_to_property_id FOREIGN KEY (property_id) REFERENCES property (property_id),
 	CONSTRAINT FK_renter_id_to_user_id FOREIGN KEY (renter_id) REFERENCES users (user_id)	
+);
+
+CREATE TABLE maintenance (
+title varchar (100) NOT NULL,
+request_id SERIAL,
+worker_id int DEFAULT 0,
+request_date timestamp NOT NULL DEFAULT Now(),
+property_id int,
+maintenance_status varchar(15) DEFAULT 'RECEIVED',
+description varchar(1000) NOT NULL,
+CONSTRAINT PK_maintanence PRIMARY KEY (request_id),
+CONSTRAINT FK_maintanence_worker FOREIGN KEY (worker_id) REFERENCES users (user_id),
+CONSTRAINT FK_maintanence_property FOREIGN KEY (property_id) REFERENCES property (property_id),
+CONSTRAINT CK_maintenance_status CHECK (maintenance_status IN ('RECEIVED', 'IN_PROGRESS', 'COMPLETE'))
+
 );
 
 COMMIT TRANSACTION;
