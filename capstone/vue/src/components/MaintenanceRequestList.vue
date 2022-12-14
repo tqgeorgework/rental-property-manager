@@ -25,7 +25,7 @@
         <th>{{request.description}}</th>
         <th>{{ request.status }}</th>
         <th>
-          <button @click="markComplete(request)"/>
+          <button class="button" v-if="request.status != 'COMPLETE' " @click="markComplete(request)"/>
         </th>
       </tr>
       
@@ -84,5 +84,11 @@ th {
   font: 18px "Orbitron";
   font-size: 14px;
   font-weight: 400;
+}
+.button {
+  width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  background-color: orange;
 }
 </style>
