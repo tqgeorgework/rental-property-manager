@@ -27,35 +27,43 @@
     </table>
   <div>
     <select id="workers">
-      <option v-for="worker in workers"></option>
+      <option v-for="worker in workers" :key="worker.id"> {{worker.name}} </option>
+    </select>
+      
+    
     <button :disabled="selectedRequests == 0">Submit</button>
+  </div>
   </div>
 </template>
 
 <script>
-import MaintenanceService from '../services/MaintenanceService';
-import AuthService from '../services/AuthService';
-
+import MaintenanceService from "../services/MaintenanceService";
+import AuthService from "../services/AuthService";
 
 export default {
   data() {
     return {
       currentRequests: [],
       selectedRequests: [],
-      workers: []
+      workers: [],
     };
   },
   methods: {
     setupRequests() {
       MaintenanceService.getRequestsByLandlord().then((response) => {
         this.currentRequests = response.data;
-      })
-    }
+      });
+    },
+    setupUsers() {
+      AuthService.allMaintenanceWorkers().then((response) => {
+        this.workers = response.data;
+      });
+    },
   },
 
   created() {
     this.setupRequests();
-  }
+  },
 };
 </script>
 
