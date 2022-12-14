@@ -5,7 +5,6 @@
     <router-link :to="{ name: 'login' }" v-if="$store.state.token == ''">Login / Register</router-link> &nbsp;
     <router-link :to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link> &nbsp;
     <router-link :to="{ name: 'listings' }">Browse Listings</router-link> &nbsp;
-    <router-link :to="{ name: 'maintenance' }" v-if="$store.state.token != ''">Maintenance</router-link> &nbsp;
     </nav>
     <img src="../../img/OrgLogo.png" />
     <h1 id="site-name">Rent<span style='font-size:1.2em;'>TE</span>nant</h1>
