@@ -90,7 +90,7 @@ public class JdbcMaintenanceDao implements MaintenanceDao {
         return true;
     }
     public boolean markComplete(int requestID) {
-        String sql = "UPDATE maintenance SET maintenance_status = 'COMPLETE' WHERE request_id = ?'";
+        String sql = "UPDATE maintenance SET maintenance_status = 'COMPLETE' WHERE request_id = ?";
         try {
             jdbcTemplate.update(sql, requestID);
         } catch(DataAccessException e) {

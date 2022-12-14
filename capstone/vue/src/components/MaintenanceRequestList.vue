@@ -17,15 +17,15 @@
       >
       <th>{{ request.date }}</th>
         <th>
-          <router-link :to="{name:'request-detail', params:{ID: request.requestID}}"> 
+          <!-- <router-link :to="{name:'request-detail', params:{ID: request.requestID}}">  -->
             {{ request.title }}
-            </router-link>
+            <!-- </router-link> -->
             </th>
         
         <th>{{request.description}}</th>
         <th>{{ request.status }}</th>
         <th>
-          <button @click="markComplete(request.requestID)"/>
+          <button @click="markComplete(request)"/>
         </th>
       </tr>
       
@@ -51,8 +51,13 @@ export default {
         }
       );
     },
-    markComplete(ID){
-      MaintenanceService.markComplete(ID)
+    markComplete(request){
+      MaintenanceService.markComplete(request).then((response) => {
+        if (response.status === 200) {
+            request.status="COMPLETE";
+          }
+      })
+      
     }
   },
   created() {

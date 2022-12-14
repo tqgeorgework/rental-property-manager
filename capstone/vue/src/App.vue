@@ -33,6 +33,7 @@ export default {
   "top"
   "view"
   "foot";
+  color: #EFF5F5
 }
 #view {
   margin-top: 13vw;
