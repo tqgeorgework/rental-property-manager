@@ -12,8 +12,10 @@
     <landlord-listings/>
     </div>
     <div id = "button">
-    <button onclick="blur()" v-on:click="$store.state.showForm = true" v-if="!$store.state.showForm">Add Property</button>
-    <property-add-form v-if="$store.state.showForm" />
+    <router-link :to="{ name: 'add-property' }">
+    <button onclick="blur()" >Add Property</button>
+    </router-link>
+    <!-- <property-add-form v-if="$store.state.showForm" /> -->
     <landlord-request-list/>
     </div>
     
@@ -22,11 +24,11 @@
 </template>
 <script>
 import LandlordListings from './LandlordListings.vue';
-import PropertyAddForm from "./PropertyAddForm.vue";
+// import PropertyAddForm from "./PropertyAddForm.vue";
 import LandlordRequestList from './LandlordRequestList.vue';
 
 export default {
-  components: { LandlordListings, PropertyAddForm, LandlordRequestList},
+  components: { LandlordListings, LandlordRequestList},
   name: "landlord-profile"
   
 };

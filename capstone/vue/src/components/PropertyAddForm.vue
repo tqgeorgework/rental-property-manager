@@ -6,11 +6,22 @@
     </div>
     <div>
       <label>Price:</label>
-      <input type="number" value="700" min="5" step="5" v-model="$store.state.newProperty.price" />
+      <input
+        type="number"
+        value="700"
+        min="5"
+        step="5"
+        v-model="$store.state.newProperty.price"
+      />
     </div>
     <div>
       <label>Bedrooms:</label>
-      <input type="number" value="1" min="1" v-model="$store.state.newProperty.bedrooms" />
+      <input
+        type="number"
+        value="1"
+        min="1"
+        v-model="$store.state.newProperty.bedrooms"
+      />
     </div>
     <div>
       <label>Bathrooms:</label>
@@ -28,15 +39,28 @@
     </div>
     <div>
       <label>SQ Footage:</label>
-      <input type="number" value="500" step="5" min="5" v-model="$store.state.newProperty.sqFootage" />
+      <input
+        type="number"
+        value="500"
+        step="5"
+        min="5"
+        v-model="$store.state.newProperty.sqFootage"
+      />
     </div>
     <div>
       <label>Description:&nbsp;</label>
       <textarea type="text" v-model="$store.state.newProperty.description" />
     </div>
-    <div>
-      <button class="save" type="submit" > save </button>
-      <button class="cancel" v-on:click="resetForm" type="button" value="Cancel"> Cancel </button>
+    <div id="save-cancel-container">
+      <button class="save" type="submit">save</button>
+      <button
+        class="cancel"
+        v-on:click="resetForm"
+        type="button"
+        value="Cancel"
+      >
+        Cancel
+      </button>
     </div>
   </form>
 </template>
@@ -45,21 +69,16 @@
 import PropertyService from "../services/PropertyService";
 
 export default {
-
   data() {
-    return {
-
-    };
+    return {};
   },
   methods: {
     addProperty() {
       let newProperty = this.$store.state.newProperty;
-      newProperty.rentStatus = "PAID",
-      newProperty.rented = false;
+      (newProperty.rentStatus = "PAID"), (newProperty.rented = false);
       PropertyService.addProperty(newProperty).then((response) => {
         if (response.status === 200) {
           this.$store.commit("ADD_PROPERTY", newProperty);
-          this.$router.push({ name: 'profile' });
         }
       });
       this.resetForm();
@@ -67,6 +86,7 @@ export default {
     resetForm() {
       this.$store.state.showForm = false;
       this.$store.state.newProperty = {};
+      this.$router.push({ name: "profile" });
     },
   },
 };
@@ -77,77 +97,77 @@ export default {
 
 input {
   box-sizing: border-box;
-                    font-family: inherit;
-                    font-size: 14px;
-                    vertical-align: baseline;
-                    font-weight: 400;
-                    line-height: 1.29;
-                    letter-spacing: .16px;
-                    border-radius: 0;
-                    outline: 2px solid transparent;
-                    outline-offset: -2px;
-                    height: 40px;
-                    border: none;
-                    border-bottom: 1px solid #8D8D8D;
-                    background-color: #f4f4f4fa;
-                    padding: 0 16px;
-                    margin-top: 5px;
-                    margin-bottom: 5px;
-                    color: #161616;
-                
-                    transition: background-color 70ms cubic-bezier(.2,0,.38,.9),outline 70ms cubic-bezier(.2,0,.38,.9);
+  font-family: inherit;
+  font-size: 14px;
+  vertical-align: baseline;
+  font-weight: 400;
+  line-height: 1.29;
+  letter-spacing: 0.16px;
+  border-radius: 0;
+  outline: 2px solid transparent;
+  outline-offset: -2px;
+  height: 40px;
+  border: 1;
+  border-color: lightgrey;
+  padding: 0 16px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #161616;
+
+  transition: background-color 70ms cubic-bezier(0.2, 0, 0.38, 0.9),
+    outline 70ms cubic-bezier(0.2, 0, 0.38, 0.9);
 }
-                    :focus{
-                        outline: 2px solid #0F62FE;
-                        outline-offset: -2px;
-                    }
-form{
-  margin-right: 50%;
+:focus {
+  outline: 2px solid #0f62fe;
+  outline-offset: -2px;
+}
+form {
+  border: black solid 4px;
+  border-radius: 6px;
+  box-shadow: darkgray 8px 8px;
+  padding: 10px;
   margin-top: 20px;
- 
+  width: 600px;
 }
-label{
-  align-items: flex-start;
-  width: 40vh;
+label {
+  /* align-items: flex-start;
+  width: 100px; */
 }
 
-/* .save, .cancel{
- display: inline-block;
- 
-                outline: 0;
-                border: none;
-                cursor: pointer;
-                padding: 0px 24px;
-                border-radius: 50px;
-                min-width: 100px;
-                height: 50px;
-                font-size: 18px;
-                background-color: rgb(221, 73, 19);
-                font-weight: 500;
-                color: #222;
-                margin: 10px;
-                
-} */
+#save-cancel-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 400px;
+}
 
+div {
+  display: flex;
+  flex-direction: column;
+}
 
 button {
   position: relative;
   padding: 4px 20px;
-  
-  
+
   font: 18px "Orbitron";
-  letter-spacing:1px;
+  letter-spacing: 1px;
   text-transform: uppercase;
   margin: 40px;
 
-  
-  
   color: #fff;
   text-shadow: 0 5px 20px rgba(192, 36, 0, 0.4), 0 2px 2px rgba(192, 36, 0, 0.4);
-  background-image: radial-gradient(100% 75% at 50% 100%, #fed262 0%, #c40900 100%);
+  background-image: radial-gradient(
+    100% 75% at 50% 100%,
+    #fed262 0%,
+    #c40900 100%
+  );
   border: none;
   border-radius: 100px;
-  box-shadow: inset 0 3px 15px 0 #ae2000, inset 0 -3px 0 0 #fed262, inset 0 40px 0 0 rgba(254, 210, 98, 0.4), inset 0 20px 20px 0 #f8bf45, 0 0 0 8px #000, 0 9px 0 0 #444, 0 0 20px 0 rgba(254, 210, 98, 0.4), 0 40px 20px -30px rgba(254, 210, 98, 0.2);
+  box-shadow: inset 0 3px 15px 0 #ae2000, inset 0 -3px 0 0 #fed262,
+    inset 0 40px 0 0 rgba(254, 210, 98, 0.4), inset 0 20px 20px 0 #f8bf45,
+    0 0 0 8px #000, 0 9px 0 0 #444, 0 0 20px 0 rgba(254, 210, 98, 0.4),
+    0 40px 20px -30px rgba(254, 210, 98, 0.2);
 }
 button:before {
   content: "";
@@ -175,19 +195,29 @@ button:after {
 }
 button:hover {
   cursor: pointer;
-  background-image: radial-gradient(100% 75% at 50% 100%, #f7b940 0%, #a20700 100%);
+  background-image: radial-gradient(
+    100% 75% at 50% 100%,
+    #f7b940 0%,
+    #a20700 100%
+  );
 }
-button:focus, button:active {
+button:focus,
+button:active {
   outline: none;
   color: #f9e3bf;
-  background-image: radial-gradient(100% 75% at 50% 100%, #f58725 0%, #850600 100%);
-  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.4), inset 0 0 10px #850600, inset 0 3px 15px 0 #ae2000, inset 0 40px 0 0 rgba(254, 210, 98, 0.3), inset 0 20px 20px 0 rgba(248, 191, 69, 0.75), 0 0 0 8px #000, 0 9px 0 0 #444;
+  background-image: radial-gradient(
+    100% 75% at 50% 100%,
+    #f58725 0%,
+    #850600 100%
+  );
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.4), inset 0 0 10px #850600,
+    inset 0 3px 15px 0 #ae2000, inset 0 40px 0 0 rgba(254, 210, 98, 0.3),
+    inset 0 20px 20px 0 rgba(248, 191, 69, 0.75), 0 0 0 8px #000, 0 9px 0 0 #444;
 }
 
-
-
-textarea{
-  width: 250px;
+textarea {
+  display: flex;
+  flex-grow: 1;
   height: 130px;
   position: relative;
 }

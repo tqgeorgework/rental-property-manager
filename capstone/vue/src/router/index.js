@@ -9,6 +9,7 @@ import BrowseListings from '../views/BrowseListings.vue'
 import Maintenance from '../views/Maintenance.vue'
 import PropertyView from '../views/PropertyView.vue'
 import RequestView from '../views/RequestView.vue'
+import PropertyForm from '../views/PropertyForm.vue'
 
 Vue.use(Router)
 
@@ -89,6 +90,15 @@ const router = new Router({
     }
   }
     ,
+    {
+      path: "/new",
+      name: "add-property",
+      component: PropertyForm,
+      meta: {
+        requiresAuth: false
+      }
+    }
+      ,
   ]
 })
 

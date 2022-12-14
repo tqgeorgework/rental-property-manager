@@ -35,7 +35,7 @@ export default {
   "foot";
 }
 #view {
-  margin-top: 13vw;
+  margin-top: 159px;
 }
 body {
   background-color: #EFF5F5
