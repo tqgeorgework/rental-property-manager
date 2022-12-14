@@ -9,14 +9,15 @@
     <img src="../../img/OrgLogo.png" />
     <h1 id="site-name">Rent<span style='font-size:1.2em;'>TE</span>nant</h1>
     <menu class="quick-menu">
-      <router-link id="search-shortcut" :to="{ name: 'browse' }"
+       <router-link id="profile-shortcut" :to="{ name: 'profile' }"
+        ><i class="fas fa-user-circle"/>
+      </router-link>
+      <router-link id="listings-shortcut" :to="{ name: 'browse' }"
         ><font-awesome-icon icon="fa-solid fa-search" /> <i class="fas fa-house"/> </router-link>
       <router-link id="maintenance-shortcut" :to="{ name: 'maintenance' }"
-        ><font-awesome-icon icon="fa-solid fa-wrench" />
+        ><i class="fas fa-sign-out"/>
       </router-link>
-      <router-link id="profile-shortcut" :to="{ name: 'profile' }"
-        ><font-awesome-icon icon="fa-solid fa-user-circle" />
-      </router-link>
+     
     </menu>
   </header>
 </template>
