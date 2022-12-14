@@ -73,16 +73,19 @@ public class JdbcMaintenanceDao implements MaintenanceDao {
 
         return requests;
     }
-    public boolean assignWorker(int workerID, int requestID) {
-        String sql = "UPDATE maintenance SET worker_id = ? WHERE request_id = ?";
-        String sql2 = "UPDATE maintenance SET maintenance_status = 'IN_PROGRESS' WHERE request_id = ?";
-        try {
-            jdbcTemplate.update(sql, workerID, requestID);
-            jdbcTemplate.update(sql2, requestID);
-        } catch(DataAccessException e) {
-            System.err.println("Error posting to the database." + e.getMessage());
-            e.printStackTrace();
-            return false;
+    public boolean assignWorker(List<MaintenanceRequest> requests) {
+
+        for (MaintenanceRequest request : requests) {
+            String sql = "UPDATE maintenance SET worker_id = ? WHERE request_id = ?";
+            String sql2 = "UPDATE maintenance SET maintenance_status = 'IN PROGRESS' WHERE request_id = ?";
+            try {
+                jdbcTemplate.update(sql, request.getWorkerID(), request.getRequestID());
+                jdbcTemplate.update(sql2, request.getRequestID());
+            } catch(DataAccessException e) {
+                System.err.println("Error posting to the database." + e.getMessage());
+                e.printStackTrace();
+                return false;
+            }
         }
         return true;
     }

@@ -3,20 +3,26 @@
     <table id="request-table">
       <tr>
         <th>Title</th>
-        <th>Description</th>
         <th>Request Date</th>
         <th>Status</th>
       </tr>
+
+      
       <tr
         class="data-row"
         v-for="request in currentRequests"
         :key="request.requestID"
       >
-        <th>{{ request.title }}</th>
-        <th>{{ request.description }}</th>
+      
+        <th>
+          <router-link :to="{name:'request-detail', params:{ID: request.requestID}}"> 
+            {{ request.title }}
+            </router-link>
+            </th>
         <th>{{ request.date }}</th>
         <th>{{ request.status }}</th>
       </tr>
+      
     </table>
   </div>
 </template>

@@ -13,7 +13,7 @@ public interface MaintenanceDao {
     List<MaintenanceRequest> getRequestsByPropertyID(int propertyID);
     List<MaintenanceRequest> getRequestsByPrincipal(Principal principal);
     List<MaintenanceRequest> getAllRequests();
-    boolean assignWorker(int workerID, int requestID);
+    boolean assignWorker(List<MaintenanceRequest> requests);
     boolean markComplete(int requestID);
     List<MaintenanceRequest> getRequestsByStatus(String status);
     List<MaintenanceRequest> getRequestsByLandlord(Principal principal);
