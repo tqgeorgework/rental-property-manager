@@ -13,25 +13,36 @@
         class="data-row"
         v-for="request in currentRequests"
         :key="request.requestID"
+
       >
         <th>{{ request.propertyID }}</th>
         <th>{{ request.title }}</th>
         <th>{{ request.description }}</th>
         <th>{{ request.date }}</th>
         <th>{{ request.status }}</th>
+        <th> 
+          <input type="checkbox" v-if="request.status == 'RECEIVED'" :id="request.requestID" :value="request.requestID" v-model.number="selectedRequests"/>
+        </th>
       </tr>
     </table>
+  <div>
+    <select id="workers">
+      <option v-for="worker in workers"></option>
+    <button :disabled="selectedRequests == 0">Submit</button>
   </div>
 </template>
 
 <script>
 import MaintenanceService from '../services/MaintenanceService';
+import AuthService from '../services/AuthService';
 
 
 export default {
   data() {
     return {
       currentRequests: [],
+      selectedRequests: [],
+      workers: []
     };
   },
   methods: {
@@ -41,6 +52,7 @@ export default {
       })
     }
   },
+
   created() {
     this.setupRequests();
   }
