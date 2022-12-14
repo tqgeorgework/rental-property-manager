@@ -8,7 +8,14 @@
         <th>Description</th>
         <th>Request Date</th>
         <th>Status</th>
-        <th>Assign Worker</th>
+        <th>Assign Worker
+          <div>
+              <select id="workers" v-model="selectedWorker">
+      <option v-for="worker in workers" :value="worker.id" :key="worker.id"> {{worker.name}} </option>
+    </select>
+    
+    <button :disabled="selectedRequestsIDs == 0" @click="assignWorker()">Submit</button> </div>
+        </th>
       </tr>
       <tr
         class="data-row"
@@ -23,22 +30,17 @@
         <th>{{ request.status }}</th>
         <th> 
           <input type="checkbox" v-if="request.status == 'RECEIVED'" :id="request.requestID" :value="request.requestID" v-model.number="selectedRequestsIDs"/>
-          <!-- <select id="workers" v-model="selectedWorker">
-      <option v-for="worker in workers" :value="worker.id" :key="worker.id"> {{worker.name}} </option>
-    </select>
-    
-    <button :disabled="selectedRequestsIDs == 0" @click="assignWorker()">Submit</button> -->
         </th>
       </tr>
     </table>
-  <div>
+  <!-- <div>
     <select id="workers" v-model="selectedWorker">
       <option v-for="worker in workers" :value="worker.id" :key="worker.id"> {{worker.name}} </option>
     </select>
     
     <button :disabled="selectedRequestsIDs == 0" @click="assignWorker()">Submit</button>
     
-  </div>
+  </div> -->
   </div>
 </template>
 
