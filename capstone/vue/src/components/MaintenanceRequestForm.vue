@@ -9,7 +9,7 @@
       <textarea type="text" v-model="newRequest.description" />
     </div>
     <div>
-      <button class="save" type="submit">Submit maintenance request</button>
+      <button class="save" type="submit">Submit</button>
       <button
         class="cancel"
         v-on:click="resetForm"
