@@ -54,8 +54,8 @@ public class MaintenanceController {
     }
 
     @PutMapping("/assign")
-    public boolean assignWorker(@RequestBody MaintenanceRequest request) {
-        return maintenanceDao.assignWorker(request.getWorkerID(), request.getRequestID());
+    public boolean assignWorker(@RequestBody List<MaintenanceRequest> requests) {
+        return maintenanceDao.assignWorker(requests);
     }
 
     @PutMapping("/complete")
