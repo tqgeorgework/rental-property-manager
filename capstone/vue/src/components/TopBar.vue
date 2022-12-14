@@ -1,11 +1,11 @@
 <template>
   <header id="page-header">
     <nav>
-    <router-link :to="{ name: 'profile' }">Profile</router-link> &nbsp; | &nbsp;
-    <router-link :to="{ name: 'login' }" v-if="$store.state.token == ''">Login / Register</router-link> &nbsp; | &nbsp;
-    <router-link :to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link> &nbsp; | &nbsp;
-    <router-link :to="{ name: 'listings' }">Browse Listings</router-link> &nbsp; | &nbsp;
-    <router-link :to="{ name: 'maintenance' }" v-if="$store.state.token != ''">Maintenance</router-link>
+    <router-link :to="{ name: 'profile' }">Profile</router-link> &nbsp;
+    <router-link :to="{ name: 'login' }" v-if="$store.state.token == ''">Login / Register</router-link> &nbsp;
+    <router-link :to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link> &nbsp;
+    <router-link :to="{ name: 'listings' }">Browse Listings</router-link> &nbsp;
+    <router-link :to="{ name: 'maintenance' }" v-if="$store.state.token != ''">Maintenance</router-link> &nbsp;
     </nav>
     <img src="../../img/OrgLogo.png" />
     <h1 id="site-name">Rent<span style='font-size:1.2em;'>TE</span>nant</h1>
@@ -84,6 +84,7 @@ a#page-header:nth-child(4) {
 }
 
 #page-header nav :not(:first-child):before {
+   content: " |";
   padding-right: 10px;
 }
 #page-header nav a {
@@ -133,3 +134,4 @@ a#page-header:nth-child(4) {
 }
 
 </style>
+
