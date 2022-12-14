@@ -1,7 +1,7 @@
 <template>
   <header id="page-header">
     <nav>
-    <router-link :to="{ name: 'profile' }">Profile</router-link> &nbsp; | &nbsp;
+    <router-link :to="{ name: 'profile' }">Profile</router-link>
     <router-link :to="{ name: 'login' }" v-if="$store.state.token == ''">Login / Register</router-link> &nbsp; | &nbsp;
     <router-link :to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link> &nbsp; | &nbsp;
     <router-link :to="{ name: 'listings' }">Browse Listings</router-link> &nbsp; | &nbsp;

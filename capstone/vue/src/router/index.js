@@ -8,6 +8,7 @@ import store from '../store/index'
 import BrowseListings from '../views/BrowseListings.vue'
 import Maintenance from '../views/Maintenance.vue'
 import PropertyView from '../views/PropertyView.vue'
+import RequestView from '../views/RequestView.vue'
 
 Vue.use(Router)
 
@@ -78,8 +79,15 @@ const router = new Router({
       meta: {
         requiresAuth: false
       }
+    },
+    {
+    path: "/requests/:ID",
+    name: "request-detail",
+    component: RequestView,
+    meta: {
+      requiresAuth: false
     }
-    
+  }
     ,
   ]
 })
