@@ -68,9 +68,9 @@ input {
   outline: 2px solid transparent;
   outline-offset: -2px;
   height: 40px;
-  border: none;
+  border: 5px 5px 5px 5px;
   border-bottom: 1px solid #8d8d8d;
-  background-color: #f4f4f4fa;
+  border-color: orange;
   padding: 0 16px;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -84,6 +84,9 @@ input {
   outline-offset: -2px;
 }
 form {
+  /* display: flex;
+  flex-direction: column; */
+  align-content: center;
   margin-right: 50%;
   margin-top: 20px;
 }

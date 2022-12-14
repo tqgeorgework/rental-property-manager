@@ -12,9 +12,9 @@
        <router-link id="profile-shortcut" :to="{ name: 'profile' }"
         ><i class="fas fa-user-circle"/>
       </router-link>
-      <router-link id="listings-shortcut" :to="{ name: 'browse' }"
+      <router-link id="listings-shortcut" :to="{ name: 'listings' }"
         ><font-awesome-icon icon="fa-solid fa-search" /> <i class="fas fa-house"/> </router-link>
-      <router-link id="maintenance-shortcut" :to="{ name: 'maintenance' }"
+      <router-link id="logout-shortcut" :to="{ name: 'logout' }"
         ><i class="fas fa-sign-out"/>
       </router-link>
      
