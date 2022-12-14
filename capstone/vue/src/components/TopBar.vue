@@ -41,7 +41,7 @@ a:hover {
 }
 
 #site-name {
-  font-size: 8.5vh;
+  font-size: 65px;
   filter: drop-shadow(5px 10px 5px #806819);
 }
 
@@ -76,7 +76,7 @@ a#page-header:nth-child(4) {
 }
 #page-header img {
   /* filter: drop-shadow(0px 1px 15px #806819); */
-  height: 20vh;
+  height: 140px;
   margin-top: 10px;
   /* animation: rotation 25s infinite alternate; */
   animation: rotation 20s linear 40s alternate infinite;
@@ -118,11 +118,11 @@ a#page-header:nth-child(4) {
   }
   
   20% {
-    transform: translateX(22.5vw) rotateZ(360deg);
+    transform: translateX(345px) rotateZ(360deg);
   }
   
   40% {
-    transform: translateX(22.5vw) rotateZ(360deg);
+    transform: translateX(345px) rotateZ(360deg);
   }
 }
 
