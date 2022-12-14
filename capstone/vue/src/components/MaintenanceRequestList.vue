@@ -2,9 +2,11 @@
   <div>
     <table id="request-table">
       <tr>
-        <th>Title</th>
         <th>Request Date</th>
+        <th>Title</th>
+        <th>Description</th>
         <th>Status</th>
+        <th>Mark Complete</th>
       </tr>
 
       
@@ -13,14 +15,18 @@
         v-for="request in currentRequests"
         :key="request.requestID"
       >
-      
+      <th>{{ request.date }}</th>
         <th>
           <router-link :to="{name:'request-detail', params:{ID: request.requestID}}"> 
             {{ request.title }}
             </router-link>
             </th>
-        <th>{{ request.date }}</th>
+        
+        <th>{{request.description}}</th>
         <th>{{ request.status }}</th>
+        <th>
+          <button @click="markComplete(request.requestID)"/>
+        </th>
       </tr>
       
     </table>
@@ -45,6 +51,9 @@ export default {
         }
       );
     },
+    markComplete(ID){
+      MaintenanceService.markComplete(ID)
+    }
   },
   created() {
     this.getMaintenanceRequests();

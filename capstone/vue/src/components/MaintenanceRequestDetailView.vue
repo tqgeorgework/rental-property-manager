@@ -4,6 +4,9 @@
     <div>{{detailRequest.title}}asdf</div>
     <div>{{detailRequest.date}}asdf</div>
     <div>{{detailRequest.status}}asdf</div>
+    <div>
+      
+    </div>
     </div>
     <div id="details">{{detailRequest.description}}</div>
     
@@ -45,7 +48,7 @@ created() {
 }
 
 #information-bar:first-child {
-  grow: 4;
+  flex-grow: 4;
 }
 
 #details  {
