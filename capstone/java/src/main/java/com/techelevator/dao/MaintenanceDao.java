@@ -16,5 +16,6 @@ public interface MaintenanceDao {
     boolean assignWorker(int workerID, int requestID);
     boolean markComplete(int requestID);
     List<MaintenanceRequest> getRequestsByStatus(String status);
+    List<MaintenanceRequest> getRequestsByLandlord(Principal principal);
 
 }

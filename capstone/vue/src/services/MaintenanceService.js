@@ -22,7 +22,10 @@ export default {
     markComplete(request) {
         return axios.put(`/maintenance/complete`, request)
     },
-    getRequestsByStatus() {
-        return axios.get(`/maintenance/status`)
+    getRequestsByStatus(status) {
+        return axios.get(`/maintenance/status?status=${status}`)
     },
+    getRequestsByLandlord() {
+        return axios.get("/maintenance/property/landlord")
+    }
 }

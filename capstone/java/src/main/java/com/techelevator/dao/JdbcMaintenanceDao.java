@@ -107,6 +107,19 @@ public class JdbcMaintenanceDao implements MaintenanceDao {
         }
         return requests;
     }
+    public List<MaintenanceRequest> getRequestsByLandlord(Principal principal) {
+        List<MaintenanceRequest> requests = new ArrayList<>();
+        String sql = "SELECT * FROM maintenance AS m" +
+                " JOIN property AS p ON m.property_id = p.property_id" +
+                " JOIN users AS u ON p.landlord_id = u.user_id" +
+                " WHERE username = ? ORDER BY m.request_date";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, principal.getName());
+
+        while (results.next()) {
+            requests.add((mapRowToMaintenanceRequest(results)));
+        }
+        return requests;
+    }
     private MaintenanceRequest mapRowToMaintenanceRequest(SqlRowSet rs) {
 
         Date thisDate = rs.getDate("request_date");

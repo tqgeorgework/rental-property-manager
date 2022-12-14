@@ -67,4 +67,8 @@ public class MaintenanceController {
     public List<MaintenanceRequest> getRequestsByStatus(@RequestParam String status) {
         return maintenanceDao.getRequestsByStatus(status);
     }
+    @GetMapping("/property/landlord")
+    public List<MaintenanceRequest> getRequestsByLandLordAccount(Principal principal) {
+        return maintenanceDao.getRequestsByLandlord(principal);
+    }
 }
