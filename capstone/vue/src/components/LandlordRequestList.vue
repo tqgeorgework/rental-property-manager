@@ -21,17 +21,17 @@
         <th>{{ request.date }}</th>
         <th>{{ request.status }}</th>
         <th> 
-          <input type="checkbox" v-if="request.status == 'RECEIVED'" :id="request.requestID" :value="request.requestID" v-model.number="selectedRequests"/>
+          <input type="checkbox" v-if="request.status == 'RECEIVED'" :id="request.requestID" :value="request.requestID" v-model.number="selectedRequestsIDs"/>
         </th>
       </tr>
     </table>
   <div>
-    <select id="workers">
-      <option v-for="worker in workers" :key="worker.id"> {{worker.name}} </option>
+    <select id="workers" v-model="selectedWorker">
+      <option v-for="worker in workers" :value="worker.id" :key="worker.id"> {{worker.name}} </option>
     </select>
-      
     
-    <button :disabled="selectedRequests == 0">Submit</button>
+    <button :disabled="selectedRequestsIDs == 0" @click="assignWorker()">Submit</button>
+    
   </div>
   </div>
 </template>
@@ -44,8 +44,10 @@ export default {
   data() {
     return {
       currentRequests: [],
+      selectedRequestsIDs: [],
       selectedRequests: [],
       workers: [],
+      selectedWorker: {}
     };
   },
   methods: {
@@ -59,10 +61,35 @@ export default {
         this.workers = response.data;
       });
     },
+    getSelectedRequests() {
+      this.selectedRequestsIDs.forEach(ID => {
+        this.currentRequests.forEach(request => {
+          if (request.requestID == ID) {
+            this.selectedRequests.push(request);
+          }
+        })
+      })
+    },
+    assignWorker() {
+      this.getSelectedRequests();
+      this.selectedRequests.forEach(request => {
+        request.workerID = this.selectedWorker;
+        request.status = "IN PROGRESS"
+      })
+      
+      MaintenanceService.assignWorker(this.selectedRequests).then((response) => {
+        if (response == 200) {
+          this.selectedRequests = [],
+          this.selectedWorker = {},
+          this.setupRequests();
+        }
+      })
+    }
   },
 
   created() {
     this.setupRequests();
+    this.setupUsers();
   },
 };
 </script>

@@ -16,8 +16,8 @@ export default {
     getRequestsByPropertyPrincipal() {
         return axios.get(`/maintenance/property/own`)
     },
-    assignWorker(request) {
-        return axios.put(`/maintenance/assign`, request)
+    assignWorker(requests) {
+        return axios.put(`/maintenance/assign`, requests)
     },
     markComplete(request) {
         return axios.put(`/maintenance/complete`, request)
