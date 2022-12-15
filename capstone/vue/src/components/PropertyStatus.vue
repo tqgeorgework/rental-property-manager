@@ -1,13 +1,18 @@
 <template>
   <div>
-    <div v-show="curProperty.rentStatus == 'PAID'">
-      <p v-show="getDaysUntilDue == 'Today!'">Rent is TODAY!</p>
-      <p v-show="getDaysUntilDue != 'Today!'">
-        Rent is due in {{ getDaysUntilDue }} days.
-      </p>
+    <div v-show="curProperty.rented">
+      <div v-show="curProperty.rentStatus == 'PAID'">
+        <p v-show="getDaysUntilDue == 'Today!'">Rent is TODAY!</p>
+        <p v-show="getDaysUntilDue != 'Today!'">
+          Rent is due in {{ getDaysUntilDue }} days.
+        </p>
+      </div>
+      <div v-show="curProperty.rentStatus != 'PAID'">
+        <p>Rent is {{ curProperty.rentStatus }}!</p>
+      </div>
     </div>
-    <div v-show="curProperty.rentStatus != 'PAID'">
-       <p>Rent is {{curProperty.rentStatus}}!</p> 
+    <div v-show="!curProperty.rented">
+      <p> Property is still listed. </p>
     </div>
   </div>
 </template>
@@ -15,9 +20,7 @@
 <script>
 export default {
   date() {
-    return {
-      
-    };
+    return {};
   },
 
   props: ["curProperty"],
@@ -27,7 +30,7 @@ export default {
       let dueDate = new Date(
         todayDate.getFullYear(),
         todayDate.getMonth(),
-        14
+        this.curProperty.dueDay
       );
       let todayDay = todayDate.getDate();
       let dueDay = dueDate.getDate();

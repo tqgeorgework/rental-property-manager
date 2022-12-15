@@ -13,10 +13,11 @@ public class Property {
     private int landlordID;
     private String rentStatus;
     private boolean isRented;
+    private int dueDay;
 
     public Property() {}
 
-    public Property(int propertyID, double price, String address, int bedrooms, double bathrooms, String picURL, int sqFootage, String description, int landlordID, String rentStatus, boolean isRented) {
+    public Property(int propertyID, double price, String address, int bedrooms, double bathrooms, String picURL, int sqFootage, String description, int landlordID, String rentStatus, boolean isRented, int dueDay) {
         this.propertyID = propertyID;
         this.price = price;
         this.address = address;
@@ -28,6 +29,7 @@ public class Property {
         this.landlordID = landlordID;
         this.rentStatus = rentStatus;
         this.isRented = isRented;
+        this.dueDay = dueDay;
     }
 
     public int getPropertyID() {
@@ -116,5 +118,13 @@ public class Property {
 
     public void setRented(boolean rented) {
         isRented = rented;
+    }
+
+    public int getDueDay() {
+        return dueDay;
+    }
+
+    public void setDueDay(int dueDay) {
+        this.dueDay = dueDay;
     }
 }

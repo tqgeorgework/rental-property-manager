@@ -48,6 +48,16 @@
       />
     </div>
     <div>
+      <label>Day of Due Rent:</label>
+      <input
+        type="number"
+        value="5"
+        max="28"
+        min="1"
+        v-model="$store.state.newProperty.dueDay"
+      >
+    </div>
+    <div>
       <label>Description:&nbsp;</label>
       <textarea type="text" v-model="$store.state.newProperty.description" />
     </div>
