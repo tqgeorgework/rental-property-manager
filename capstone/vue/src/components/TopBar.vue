@@ -13,7 +13,7 @@
         </div>
         <span v-if="$store.state.token == ''"></span>
         <div v-else-if="$store.getters.role == 'ROLE_LANDLORD'">
-          <router-link :to="{ name: 'property-form' }"
+          <router-link :to="{ name: 'add-property' }"
             >Add Properties</router-link
           >&nbsp;|&nbsp;
         </div>
