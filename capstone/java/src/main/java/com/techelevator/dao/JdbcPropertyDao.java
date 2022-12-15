@@ -77,7 +77,7 @@ public class JdbcPropertyDao implements PropertyDao {
     public List<Property> getPropertiesByPrincipal(Principal principal){
          List<Property> properties = new ArrayList<>();
          int landlordID = userDao.findIdByUsername(principal.getName());
-         String sql = "SELECT property_id, address, price, bedrooms, bathrooms, pic_url, sq_footage, description, is_rented, rent_status, due_day FROM property WHERE landlord_id = ?;";
+         String sql = "SELECT property_id, address, price, bedrooms, bathrooms, pic_url, sq_footage, description, is_rented, rent_status, due_day FROM property WHERE landlord_id = ? ORDER BY property_id DESC;";
 
          SqlRowSet results = jdbcTemplate.queryForRowSet(sql, landlordID);
 
