@@ -1,6 +1,6 @@
 <template>
   <div>
-    <maintenance-request-form  />
+    <maintenance-request-form/>
     
   </div>
 </template>
