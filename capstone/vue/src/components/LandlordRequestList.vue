@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="landlord-maintenance-requests">
     <h2>Maintenance requests on your property: </h2>
     <table id="all-landlord-requests">
       <tr>
@@ -103,4 +103,8 @@ export default {
 </script>
 
 <style>
+#landlord-maintenance-requests {
+  display: flex;
+  flex-direction: column;
+}
 </style>

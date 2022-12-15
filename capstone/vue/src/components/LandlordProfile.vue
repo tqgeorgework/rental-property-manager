@@ -4,16 +4,16 @@
     <span style="font-size: 1.5em"></span>
     <!-- {{ $store.getters.role }} -->
 
+    <!-- <property-add-form v-if="$store.state.showForm" /> -->
+    <landlord-request-list />
     <div>
       <h1>Your Properties:</h1>
+      <div id="button">
+        <router-link :to="{ name: 'add-property' }">
+          <button onclick="blur()">Add Property</button>
+        </router-link>
+      </div>
       <landlord-listings />
-    </div>
-    <div id="button">
-      <router-link :to="{ name: 'add-property' }">
-        <button onclick="blur()">Add Property</button>
-      </router-link>
-      <!-- <property-add-form v-if="$store.state.showForm" /> -->
-      <landlord-request-list />
     </div>
   </div>
 </template>

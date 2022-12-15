@@ -26,13 +26,13 @@
 import MaintenanceService from "../services/MaintenanceService";
 
 export default {
-  props: ['singleProperty'],
+  
   data() {
     return {
       newRequest: {
         title: "",
         description: "",
-        propertyID: this.singleProperty.propertyID
+        propertyID: this.$route.params.propID
       },
     };
   },
@@ -48,6 +48,7 @@ export default {
     resetForm() {
       this.$store.state.showForm = false;
       this.$store.state.newRequest = {};
+      this.$router.go(-1)
     },
   },
 };

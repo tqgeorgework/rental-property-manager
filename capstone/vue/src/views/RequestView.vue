@@ -1,11 +1,12 @@
 <template>
-  <maintenance-request-detail-view/>
+  <landlord-request-list/>
 </template>
 
 <script>
-import MaintenanceRequestDetailView from '../components/MaintenanceRequestDetailView.vue'
+import LandlordRequestList from '../components/LandlordRequestList.vue'
+
 export default {
-  components: { MaintenanceRequestDetailView },
+  components: { LandlordRequestList },
 
 }
 </script>

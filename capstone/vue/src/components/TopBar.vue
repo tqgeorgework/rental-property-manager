@@ -1,33 +1,86 @@
 <template>
   <header id="page-header">
     <nav>
-    <router-link :to="{ name: 'profile' }">Profile</router-link> &nbsp;
-    <router-link :to="{ name: 'login' }" v-if="$store.state.token == ''">Login / Register</router-link> &nbsp;
-    <router-link :to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link> &nbsp;
-    <router-link :to="{ name: 'listings' }">Browse Listings</router-link> &nbsp;
+      <div id="link-container" v-show="true">
+        <div v-if="$store.state.token != ''">
+          <router-link :to="{ name: 'profile' }">Profile</router-link
+          >&nbsp;|&nbsp;
+        </div>
+
+        <div>
+          <router-link :to="{ name: 'listings' }">Browse Listings</router-link
+          >&nbsp;|&nbsp;
+        </div>
+        <span v-if="$store.state.token == ''"></span>
+        <div v-else-if="$store.getters.role == 'ROLE_LANDLORD'">
+          <router-link :to="{ name: 'add-property' }"
+            >Add Properties</router-link
+          >&nbsp;|&nbsp;
+        </div>
+        <span v-if="$store.state.token == ''"></span>
+        <div v-else-if="$store.getters.role == 'ROLE_LANDLORD'">
+          <router-link :to="{ name: 'request-detail' }">Maintenance</router-link>&nbsp;|&nbsp;
+        </div>
+        <span v-if="$store.state.token == ''"></span>
+        <div v-else-if="$store.getters.role == 'ROLE_USER'">
+          <router-link :to="{ name: 'maintenance' }">Maintenance</router-link>&nbsp;|&nbsp;
+        </div>
+        <div v-if="$store.state.token == ''">
+          <router-link :to="{ name: 'login' }">Login / Register</router-link>
+        </div>
+        <div v-if="$store.state.token != ''">
+          <router-link :to="{ name: 'logout' }">Logout</router-link>
+        </div>
+      </div>
     </nav>
     <img src="../../img/OrgLogo.png" />
-    <h1 id="site-name">Rent<span style='font-size:1.2em;'>TE</span>nant</h1>
+    <h1 id="site-name">Rent<span style="font-size: 1.2em">TE</span>nant</h1>
     <menu class="quick-menu">
-       <router-link id="profile-shortcut" :to="{ name: 'profile' }"
-        ><i class="fas fa-user-circle"/>
+      <router-link
+        v-if="$store.state.token != ''"
+        id="profile-shortcut"
+        :to="{ name: 'profile' }"
+        ><i class="fas fa-user-circle" />
       </router-link>
       <router-link id="listings-shortcut" :to="{ name: 'listings' }"
-        ><font-awesome-icon icon="fa-solid fa-search" /> <i class="fas fa-house"/> </router-link>
-      <router-link id="logout-shortcut" :to="{ name: 'logout' }"
-        ><i class="fas fa-sign-out"/>
+        ><font-awesome-icon icon="fa-solid fa-search" />
+        <i class="fas fa-house" />
       </router-link>
-     
+
+      <router-link
+        v-if="$store.state.token != ''"
+        id="logout-shortcut"
+        :to="{ name: 'logout' }"
+        ><i class="fas fa-sign-out" />
+      </router-link>
     </menu>
   </header>
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    isLandlord() {
+      return this.$store.getters.role == "ROLE_LANDLORD";
+    },
+    isUser() {
+      return this.$store.getters.role == "ROLE_USER";
+    },
+  },
+  data() {
+    return {
+      landlord: "",
+      user: true,
+      loggedIn: true,
+    };
+  },
+  mounted() {
+    this.landlord = this.$store.getters.role == "ROLE_LANDLORD";
+  },
+};
 </script>
 
 <style>
-
 /* TODO */
 /* Fix CSS and make design responsive for wrapping etc. */
 
@@ -36,7 +89,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: rgb(221, 73, 19);;
+  color: rgb(221, 73, 19);
   text-decoration: underline;
 }
 
@@ -54,10 +107,15 @@ a#page-header:nth-child(4) {
   flex-grow: 1;
 }
 
+#link-container {
+  display: flex;
+}
+
 #page-header {
   /* color: rgb(112, 21, 21); */
   animation: color-change 8s infinite;
-  box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12),
+    0 2px 4px -1px rgba(0, 0, 0, 0.2);
 
   margin-top: -10px;
   padding-bottom: 10px;
@@ -65,14 +123,13 @@ a#page-header:nth-child(4) {
   margin-left: -5px;
   width: 100vw;
   height: 140px;
- 
+
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   position: fixed;
   background-color: white;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 #page-header img {
   /* filter: drop-shadow(0px 1px 15px #806819); */
@@ -80,13 +137,12 @@ a#page-header:nth-child(4) {
   margin-top: 10px;
   /* animation: rotation 25s infinite alternate; */
   animation: rotation 20s linear 40s alternate infinite;
- 
 }
 
-#page-header nav :not(:first-child):before {
+/* #page-header nav :not(:first-child):before {
    content: " |";
   padding-right: 10px;
-}
+} */
 #page-header nav a {
   text-decoration: none;
   font-size: 20px;
@@ -109,29 +165,32 @@ a#page-header:nth-child(4) {
   to {
     transform: rotate(360deg);
   }
-
-  
 }
 
 @keyframes rotation {
   80% {
     transform: translateX(0vw) rotateZ(0deg);
   }
-  
+
   20% {
     transform: translateX(345px) rotateZ(360deg);
   }
-  
+
   40% {
     transform: translateX(345px) rotateZ(360deg);
   }
 }
 
 @keyframes color-change {
-  0% { color: rgb(112, 21, 21); }
-  50% { color: black; }
-  100% { color: rgb(6, 58, 4); }
+  0% {
+    color: rgb(112, 21, 21);
+  }
+  50% {
+    color: black;
+  }
+  100% {
+    color: rgb(6, 58, 4);
+  }
 }
-
 </style>
 
