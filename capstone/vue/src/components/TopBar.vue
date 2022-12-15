@@ -22,8 +22,8 @@
           <router-link :to="{ name: 'request-detail' }">Maintenance</router-link>&nbsp;|&nbsp;
         </div>
         <span v-if="$store.state.token == ''"></span>
-        <div v-else-if="isUser" :isUser="setRentedPropertyID">
-          <router-link :to="{ name: 'maintenance', params: {'propID': `${this.propertyID}`}}">Maintenance</router-link>&nbsp;|&nbsp;
+        <div v-else-if="isUser">
+          <router-link :to="{ name: 'maintenance' }">Maintenance</router-link>&nbsp;|&nbsp;
         </div>
         <div v-if="$store.state.token == ''">
           <router-link :to="{ name: 'login' }">Login / Register</router-link>
@@ -62,33 +62,42 @@ import PropertyService from '../services/PropertyService';
 export default {
   data() {
     return {
-      propertyID: 0,
+      userProperty: {
+        address: "",
+        bathrooms: 1,
+        bedrooms: 1,
+        description: "",
+        landlordID: 1,
+        picURL: "",
+        price: 1,
+        propertyID: 1,
+        rentStatus: "DUE",
+        rented: false,
+        sqFootage: 1,
+      }
     }
   },
   methods: {
-    setRentedPropertyID() {
-      let output = {
-        propertyID: 0,
-      };
+    setProperty() {
       PropertyService.getPropertyByRenter().then(
         (response) => {
           if (response.status === 200) {
-            output = response.data;
+            this.userProperty = response.data;
           }
         }
       );
-      this.propertyID = output.propertyID;
+     
     }
   },
   computed: {
     isUser() {
       return this.$store.getters.role == 'ROLE_USER';
-    },
-    getPropertyID() {
-      this.setRentedPropertyID;
-      return this.propertyID;
     }
-  },
+  
+  }
+ 
+  
+  
 };
 </script>
 

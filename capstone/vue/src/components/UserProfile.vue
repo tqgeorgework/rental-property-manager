@@ -22,7 +22,7 @@
     </div>
 
     <div id = "maintenance">
-      <router-link :to="{ name: 'maintenance', params: {'propID': userProperty.propertyID}}">
+      <router-link :to="{ name: 'maintenance'}">
       <button class ="maintenance-button">Submit maintenance request</button>
       </router-link>
       <!-- <maintenance-request-form v-if="$store.state.showForm"  :singleProperty="userProperty"/> -->

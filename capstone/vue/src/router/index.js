@@ -67,7 +67,7 @@ const router = new Router({
       }
     },
     {
-      path: "/maintenance/:propID",
+      path: "/maintenance",
       name: "maintenance",
       component: Maintenance,
       meta: {

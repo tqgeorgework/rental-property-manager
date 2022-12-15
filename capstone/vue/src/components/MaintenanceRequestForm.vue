@@ -24,6 +24,7 @@
 
 <script>
 import MaintenanceService from "../services/MaintenanceService";
+import PropertyService from "../services/PropertyService";
 
 export default {
   
@@ -50,8 +51,16 @@ export default {
       this.$store.state.newRequest = {};
       this.$router.go(-1)
     },
+    
   },
-};
+  created() {
+      PropertyService.getPropertyByRenter().then((response) => {
+        this.newRequest.propertyID = response.data.propertyID;
+      
+      });
+  
+}};
+
 </script>
 
 <style scoped>
