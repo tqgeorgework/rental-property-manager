@@ -5,7 +5,7 @@
     <!-- {{ $store.getters.role }} -->
 
     <!-- <property-add-form v-if="$store.state.showForm" /> -->
-    <landlord-request-list />
+    <!-- <landlord-request-list /> -->
     <div>
       <h1>Your Properties:</h1>
       <div id="button">
@@ -20,10 +20,10 @@
 <script>
 import LandlordListings from "./LandlordListings.vue";
 // import PropertyAddForm from "./PropertyAddForm.vue";
-import LandlordRequestList from "./LandlordRequestList.vue";
+// import LandlordRequestList from "./LandlordRequestList.vue";
 
 export default {
-  components: { LandlordListings, LandlordRequestList },
+  components: { LandlordListings },
   name: "landlord-profile",
 };
 </script>
