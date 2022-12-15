@@ -8,7 +8,7 @@
       <label>Description:</label>
       <textarea type="text" v-model="newRequest.description" />
     </div>
-    <div>
+    <div id="save-cancel-container">
       <button class="save" type="submit">Submit</button>
       <button
         class="cancel"
@@ -57,6 +57,7 @@ export default {
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap");
 
+
 input {
   box-sizing: border-box;
   font-family: inherit;
@@ -69,9 +70,8 @@ input {
   outline: 2px solid transparent;
   outline-offset: -2px;
   height: 40px;
-  border: 5px 5px 5px 5px;
-  border-bottom: 1px solid #8d8d8d;
-  border-color: orange;
+  border: 1;
+  border-color: lightgrey;
   padding: 0 16px;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -85,34 +85,31 @@ input {
   outline-offset: -2px;
 }
 form {
-  /* display: flex;
-  flex-direction: column; */
-  align-content: center;
-  margin-right: 50%;
+  border: black solid 4px;
+  border-radius: 6px;
+  box-shadow: darkgray 8px 8px;
+  padding: 10px;
   margin-top: 20px;
-}
-label {
-  align-items: flex-start;
-  width: 40vh;
+  width: 600px;
 }
 
-/* .save, .cancel{
- display: inline-block;
- 
-                outline: 0;
-                border: none;
-                cursor: pointer;
-                padding: 0px 24px;
-                border-radius: 50px;
-                min-width: 100px;
-                height: 50px;
-                font-size: 18px;
-                background-color: rgb(221, 73, 19);
-                font-weight: 500;
-                color: #222;
-                margin: 10px;
-                
-} */
+#save-cancel-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 400px;
+  
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+
 
 button {
   position: relative;
@@ -182,9 +179,9 @@ button:active {
     inset 0 3px 15px 0 #ae2000, inset 0 40px 0 0 rgba(254, 210, 98, 0.3),
     inset 0 20px 20px 0 rgba(248, 191, 69, 0.75), 0 0 0 8px #000, 0 9px 0 0 #444;
 }
-
 textarea {
-  width: 250px;
+  display: flex;
+  flex-grow: 1;
   height: 130px;
   position: relative;
 }
