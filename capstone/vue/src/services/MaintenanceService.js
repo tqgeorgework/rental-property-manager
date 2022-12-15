@@ -27,5 +27,8 @@ export default {
     },
     getRequestsByLandlord() {
         return axios.get("/maintenance/property/landlord")
+    },
+    getAddressByID(ID) {
+        return axios.get(`/maintenance/address/${ID}`)
     }
 }

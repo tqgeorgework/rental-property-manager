@@ -71,4 +71,8 @@ public class MaintenanceController {
     public List<MaintenanceRequest> getRequestsByLandLordAccount(Principal principal) {
         return maintenanceDao.getRequestsByLandlord(principal);
     }
+    @GetMapping("/address/{ID}")
+    public String getAddressByID(int ID) {
+        return maintenanceDao.getAddressByPropertyID(ID);
+    }
 }

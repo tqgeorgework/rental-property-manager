@@ -17,5 +17,5 @@ public interface MaintenanceDao {
     boolean markComplete(int requestID);
     List<MaintenanceRequest> getRequestsByStatus(String status);
     List<MaintenanceRequest> getRequestsByLandlord(Principal principal);
-
+    String getAddressByPropertyID(int ID);
 }

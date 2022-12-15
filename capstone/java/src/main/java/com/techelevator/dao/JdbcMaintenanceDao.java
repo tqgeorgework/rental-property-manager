@@ -123,6 +123,15 @@ public class JdbcMaintenanceDao implements MaintenanceDao {
         }
         return requests;
     }
+    public String getAddressByPropertyID(int ID) {
+        String output = "";
+        String sql = "SELECT address FROM property as p JOIN maintenance AS m ON p.property_id = m.property_id WHERE p.property_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, ID);
+        if (results.next()) {
+            output = String.valueOf(results);
+        }
+        return output;
+    }
     private MaintenanceRequest mapRowToMaintenanceRequest(SqlRowSet rs) {
 
         Date thisDate = rs.getDate("request_date");
