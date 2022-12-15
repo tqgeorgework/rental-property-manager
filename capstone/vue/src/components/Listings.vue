@@ -47,5 +47,11 @@ div {
 }
 .property-card img {
   width: 25vw;
+  border-radius: 5px;
+  box-sizing: border-box;
+  
+}
+.property-card img:hover{
+box-shadow: darkgray 4px 4px 4px;
 }
 </style>
