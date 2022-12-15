@@ -6,11 +6,7 @@
           <router-link :to="{ name: 'profile' }">Profile</router-link
           >&nbsp;|&nbsp;
         </div>
-        <span v-if="$store.state.token == ''"></span>
-        <div v-else-if="$store.getters.role == 'ROLE_USER'">
-          <router-link :to="{ name: 'maintenance' }">Maintenance</router-link
-          >&nbsp;|&nbsp;
-        </div>
+
         <div>
           <router-link :to="{ name: 'listings' }">Browse Listings</router-link
           >&nbsp;|&nbsp;
@@ -21,9 +17,12 @@
             >Add Properties</router-link
           >&nbsp;|&nbsp;
         </div>
+        <span v-if="$store.state.token == ''"></span>
+        <div v-else-if="$store.getters.role == 'ROLE_LANDLORD' || $store.getters.role == 'ROLE_USER'">
+          <router-link :to="{ name: '' }">Maintenance</router-link>&nbsp;|&nbsp;
+        </div>
         <div v-if="$store.state.token == ''">
-          <router-link :to="{ name: 'login' }">Login / Register</router-link
-          >
+          <router-link :to="{ name: 'login' }">Login / Register</router-link>
         </div>
         <div v-if="$store.state.token != ''">
           <router-link :to="{ name: 'logout' }">Logout</router-link>
@@ -33,8 +32,10 @@
     <img src="../../img/OrgLogo.png" />
     <h1 id="site-name">Rent<span style="font-size: 1.2em">TE</span>nant</h1>
     <menu class="quick-menu">
-      
-      <router-link v-if="$store.state.token != ''" id="profile-shortcut" :to="{ name: 'profile' }"
+      <router-link
+        v-if="$store.state.token != ''"
+        id="profile-shortcut"
+        :to="{ name: 'profile' }"
         ><i class="fas fa-user-circle" />
       </router-link>
       <router-link id="listings-shortcut" :to="{ name: 'listings' }"
@@ -42,7 +43,10 @@
         <i class="fas fa-house" />
       </router-link>
 
-      <router-link v-if="$store.state.token != ''" id="logout-shortcut" :to="{ name: 'logout' }"
+      <router-link
+        v-if="$store.state.token != ''"
+        id="logout-shortcut"
+        :to="{ name: 'logout' }"
         ><i class="fas fa-sign-out" />
       </router-link>
     </menu>
@@ -53,25 +57,23 @@
 export default {
   computed: {
     isLandlord() {
-      return this.$store.getters.role == 'ROLE_LANDLORD'
+      return this.$store.getters.role == "ROLE_LANDLORD";
     },
     isUser() {
-      return this.$store.getters.role == 'ROLE_USER'
-    }
+      return this.$store.getters.role == "ROLE_USER";
+    },
   },
   data() {
     return {
-      landlord: '',
+      landlord: "",
       user: true,
       loggedIn: true,
-    }
+    };
   },
   mounted() {
-    this.landlord = this.$store.getters.role == 'ROLE_LANDLORD'
-  }
-
+    this.landlord = this.$store.getters.role == "ROLE_LANDLORD";
+  },
 };
-
 </script>
 
 <style>
