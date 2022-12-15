@@ -11,7 +11,6 @@
       <label id="amount-due" :class="{ unpaid: !clicked, paid: clicked }"
         >Amount Due: {{ clicked ? "PAID" : "$" + userProperty.price }}
       </label>
-      
      
       <div :class="{visible: !clicked, invisible: clicked}">
       <button id="payRent" :class="{ btnClicked: userProperty.rentStatus == 'PAID', btn: userProperty.rentStatus != 'PAID'}" v-on:click="(updateRentStatus(), disabled, clicked = true)"  >
@@ -68,6 +67,7 @@ export default {
         .then((response) => {
           if (response.status === 200) {
             this.$store.commit("UPDATE_PROPERTY", this.userProperty);
+            this.$forceUpdate();
           }
         })
         .catch((error) => {
@@ -79,6 +79,7 @@ export default {
             console.log("request not made");
           }
         });
+
     },
     checkRentStatus() {
       if (

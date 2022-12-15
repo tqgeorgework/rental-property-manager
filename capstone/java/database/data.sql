@@ -1,23 +1,27 @@
 BEGIN TRANSACTION;
 
-INSERT INTO users (username,password_hash,role, name) VALUES ('landlord','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_LANDLORD', 'jotaro');
-INSERT INTO users (username,password_hash,role, name) VALUES ('landlord2','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_LANDLORD', 'josephine');
-INSERT INTO users (username,password_hash,role, name) VALUES ('landlord3','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_LANDLORD', 'jolene');
-INSERT INTO users (username,password_hash,role, name) VALUES ('landlord4','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_LANDLORD', 'joanna');
-INSERT INTO users (username,password_hash,role, name) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN', 'jonny5');
+INSERT INTO users (username,password_hash,role, name) VALUES ('landlord','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_LANDLORD', 'Jotaro');
+INSERT INTO users (username,password_hash,role, name) VALUES ('landlord2','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_LANDLORD', 'Josephine');
+INSERT INTO users (username,password_hash,role, name) VALUES ('landlord3','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_LANDLORD', 'Jolene');
+INSERT INTO users (username,password_hash,role, name) VALUES ('landlord4','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_LANDLORD', 'Joanna');
+INSERT INTO users (username,password_hash,role, name) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN', 'Jonny5');
 
-INSERT INTO users (username,password_hash,role, name) VALUES ('maintenance1','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_MAINTENANCE', 'jo');
-INSERT INTO users (username,password_hash,role, name) VALUES ('maintenance2','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_MAINTENANCE', 'joe');
-INSERT INTO users (username,password_hash,role, name) VALUES ('maintenance3','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_MAINTENANCE', 'joseph');
-INSERT INTO users (username,password_hash,role, name) VALUES ('maintenance4','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_MAINTENANCE', 'joey');
-INSERT INTO users (username,password_hash,role, name) VALUES ('maintenance5','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_MAINTENANCE', 'jojo');
+INSERT INTO users (username,password_hash,role, name) VALUES ('jo','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_MAINTENANCE', 'Jo');
+INSERT INTO users (username,password_hash,role, name) VALUES ('joe','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_MAINTENANCE', 'Joe');
+INSERT INTO users (username,password_hash,role, name) VALUES ('joseph','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_MAINTENANCE', 'Joseph');
+INSERT INTO users (username,password_hash,role, name) VALUES ('joey','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_MAINTENANCE', 'Joey');
+INSERT INTO users (username,password_hash,role, name) VALUES ('jojo','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_MAINTENANCE', 'JoJo');
 
-INSERT INTO users (username,password_hash,role, name) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', 'josh');
-INSERT INTO users (username,password_hash,role, name) VALUES ('user2','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', 'joshua');
-INSERT INTO users (username,password_hash,role, name) VALUES ('user3','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', 'jodi');
-INSERT INTO users (username,password_hash,role, name) VALUES ('user4','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', 'joel');
-INSERT INTO users (username,password_hash,role, name) VALUES ('user5','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', 'jonathan');
-INSERT INTO users (username,password_hash,role, name) VALUES ('user6','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', 'jose');
+INSERT INTO users (username,password_hash,role, name) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', 'Josh');
+INSERT INTO users (username,password_hash,role, name) VALUES ('user2','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', 'Joshua');
+INSERT INTO users (username,password_hash,role, name) VALUES ('user3','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', 'Jodi');
+INSERT INTO users (username,password_hash,role, name) VALUES ('user4','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', 'Joel');
+INSERT INTO users (username,password_hash,role, name) VALUES ('user5','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', 'Jonathan');
+INSERT INTO users (username,password_hash,role, name) VALUES ('user6','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', 'Jose');
+INSERT INTO users (username,password_hash,role, name) VALUES ('user7','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', 'Jose2');
+INSERT INTO users (username,password_hash,role, name) VALUES ('user8','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', 'Jose3');
+INSERT INTO users (username,password_hash,role, name) VALUES ('user9','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', 'Jose4');
+INSERT INTO users (username,password_hash,role, name) VALUES ('user10','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER', 'Jose5');
 
 
 INSERT INTO property (address, price, bedrooms, bathrooms, pic_url, sq_footage, description, landlord_id, due_day) 
@@ -94,6 +98,24 @@ INSERT INTO property_users(property_id, renter_id)
 VALUES (3, 15);
 UPDATE property SET is_rented = true
 WHERE property_id = 3;
+INSERT INTO property_users(property_id, renter_id)
+VALUES (6, 16);
+UPDATE property SET is_rented = true
+WHERE property_id = 6;
+INSERT INTO property_users(property_id, renter_id)
+VALUES (9, 17);
+UPDATE property SET is_rented = true
+WHERE property_id = 9;
+INSERT INTO property_users(property_id, renter_id)
+VALUES (13, 18);
+UPDATE property SET is_rented = true
+WHERE property_id = 13;
+INSERT INTO property_users(property_id, renter_id)
+VALUES (7, 19);
+UPDATE property SET is_rented = true
+WHERE property_id = 7;
+
+
 	   
 INSERT INTO maintenance(title, property_id, description)
 VALUES ('leaky roof', 1,  'my roof in the living room is leaking!' );
@@ -111,6 +133,17 @@ INSERT INTO maintenance(title, worker_id, property_id, maintenance_status, descr
 VALUES ('dryer broken', 7, 2, 'COMPLETE','dryer will not turn off.');
 INSERT INTO maintenance(title, worker_id, property_id, maintenance_status, description)
 VALUES ('stove broken', 7, 3, 'IN PROGRESS','stove will not turn on.');
+
+UPDATE property SET rent_status = 'PAID'
+WHERE property_id = 7;
+UPDATE property SET rent_status = 'PAID'
+WHERE property_id = 2;
+UPDATE property SET rent_status = 'PAID'
+WHERE property_id = 6;
+UPDATE property SET rent_status = 'PAID'
+WHERE property_id = 9;
+
+
 
 COMMIT TRANSACTION;
 
