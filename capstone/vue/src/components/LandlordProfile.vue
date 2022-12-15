@@ -15,11 +15,6 @@
       </div>
       <landlord-listings />
     </div>
-    <div id="button">
-      <router-link :to="{ name: 'add-property' }">
-        <button onclick="blur()">Add Property</button>
-      </router-link>
-    </div>
   </div>
 </template>
 <script>
