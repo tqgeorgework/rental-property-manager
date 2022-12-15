@@ -2,7 +2,7 @@
   <header id="page-header">
     <nav>
       <div id="link-container" v-show="true">
-        <div v-if="$store.state.token == ''">
+        <div v-if="$store.state.token != ''">
           <router-link :to="{ name: 'profile' }">Profile</router-link
           >&nbsp;|&nbsp;
         </div>
@@ -33,14 +33,16 @@
     <img src="../../img/OrgLogo.png" />
     <h1 id="site-name">Rent<span style="font-size: 1.2em">TE</span>nant</h1>
     <menu class="quick-menu">
-      <router-link id="profile-shortcut" :to="{ name: 'profile' }"
+      
+      <router-link v-if="$store.state.token != ''" id="profile-shortcut" :to="{ name: 'profile' }"
         ><i class="fas fa-user-circle" />
       </router-link>
       <router-link id="listings-shortcut" :to="{ name: 'listings' }"
         ><font-awesome-icon icon="fa-solid fa-search" />
         <i class="fas fa-house" />
       </router-link>
-      <router-link id="logout-shortcut" :to="{ name: 'logout' }"
+
+      <router-link v-if="$store.state.token != ''" id="logout-shortcut" :to="{ name: 'logout' }"
         ><i class="fas fa-sign-out" />
       </router-link>
     </menu>
