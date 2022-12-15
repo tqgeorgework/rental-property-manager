@@ -18,8 +18,12 @@
           >&nbsp;|&nbsp;
         </div>
         <span v-if="$store.state.token == ''"></span>
-        <div v-else-if="$store.getters.role == 'ROLE_LANDLORD' || $store.getters.role == 'ROLE_USER'">
-          <router-link :to="{ name: '' }">Maintenance</router-link>&nbsp;|&nbsp;
+        <div v-else-if="$store.getters.role == 'ROLE_LANDLORD'">
+          <router-link :to="{ name: 'request-detail' }">Maintenance</router-link>&nbsp;|&nbsp;
+        </div>
+        <span v-if="$store.state.token == ''"></span>
+        <div v-else-if="$store.getters.role == 'ROLE_USER'">
+          <router-link :to="{ name: 'maintenance' }">Maintenance</router-link>&nbsp;|&nbsp;
         </div>
         <div v-if="$store.state.token == ''">
           <router-link :to="{ name: 'login' }">Login / Register</router-link>

@@ -1,18 +1,15 @@
 <template>
   <div>
-    <maintenance-request-form v-if="$store.getters.role == 'ROLE_USER'"/>
-    <maintenance-request-list v-if="$store.getters.role == 'ROLE_LANDLORD'"/>
+    <maintenance-request-form/>
     
   </div>
 </template>
 
 <script>
 import MaintenanceRequestForm from '../components/MaintenanceRequestForm.vue';
-import MaintenanceRequestList from '../components/MaintenanceRequestList.vue';
 export default {
 components: {
-  MaintenanceRequestForm,
-MaintenanceRequestList}
+  MaintenanceRequestForm}
   
 }
 
