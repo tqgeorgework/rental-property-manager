@@ -8,12 +8,14 @@
     <!-- <landlord-request-list /> -->
     <div>
       <h1>Your Properties:</h1>
+      
+      <landlord-listings />
       <div id="button">
         <router-link :to="{ name: 'add-property' }">
           <button onclick="blur()">Add Property</button>
         </router-link>
       </div>
-      <landlord-listings />
+
     </div>
   </div>
 </template>

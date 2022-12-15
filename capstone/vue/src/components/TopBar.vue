@@ -194,11 +194,11 @@ a#page-header:nth-child(4) {
   }
 
   20% {
-    transform: translateX(345px) rotateZ(360deg);
+    transform: translateX(340px) rotateZ(360deg);
   }
 
   40% {
-    transform: translateX(345px) rotateZ(360deg);
+    transform: translateX(340px) rotateZ(360deg);
   }
 }
 

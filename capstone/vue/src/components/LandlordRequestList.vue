@@ -3,7 +3,7 @@
     <h2>Maintenance requests on your property: </h2>
     <table id="all-landlord-requests">
       <tr>
-        <th>Property Address</th>
+        <th>Property ID</th>
         <th>Title</th>
         <th>Description</th>
         <th>Request Date</th>

@@ -2,6 +2,7 @@
   <div>
     <table id="request-table">
       <tr>
+        <th>Property ID</th>
         <th>Request Date</th>
         <th>Title</th>
         <th>Description</th>
@@ -15,6 +16,7 @@
         v-for="request in currentRequests"
         :key="request.requestID"
       >
+      <th>{{ request.propertyID }}</th>
       <th>{{ request.date }}</th>
         <th>
           <!-- <router-link :to="{name:'request-detail', params:{ID: request.requestID}}">  -->
