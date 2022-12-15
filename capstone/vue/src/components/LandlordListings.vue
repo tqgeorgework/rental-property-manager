@@ -6,6 +6,7 @@
       :key="property.landlord_ID"
     >
       <property-small-detail :singleProperty="property"/>
+      <property-status :curProperty="property"/>
       <p />
     </div>
   </div>
@@ -14,13 +15,14 @@
 <script>
 import PropertyService from "../services/PropertyService";
 import PropertySmallDetail from "../components/PropertySmallDetail.vue";
+import PropertyStatus from './PropertyStatus.vue';
 
 export default {
-  components: { PropertySmallDetail },
+  components: { PropertySmallDetail, PropertyStatus },
   data() {
     return {
       ownProperties: {
-
+        
       }
     }
   },
@@ -42,6 +44,11 @@ export default {
 </script>
 
 <style>
+.property-card {
+  display: flex;
+  flex-direction: column;
+}
+
 div {
   display: flex;
   justify-content: center;
