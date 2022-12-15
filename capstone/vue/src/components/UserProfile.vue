@@ -22,20 +22,21 @@
     </div>
 
     <div id = "maintenance">
-      <button class = "maintenance-button" v-on:click="$store.state.showForm = true" v-if="$store.state.showForm == false">Submit maintenance request</button>
-      <maintenance-request-form v-if="$store.state.showForm"  :singleProperty="userProperty"/>
+      <router-link :to="{ name: 'maintenance', params: {'propID': userProperty.propertyID}}">
+      <button class ="maintenance-button">Submit maintenance request</button>
+      </router-link>
+      <!-- <maintenance-request-form v-if="$store.state.showForm"  :singleProperty="userProperty"/> -->
     </div>
-
-    
+ 
   </div>
 </template>
 
 <script>
-import MaintenanceRequestForm from "../components/MaintenanceRequestForm.vue";
+
 import PropertyService from "../services/PropertyService";
 import PropertySmallDetail from './PropertySmallDetail.vue';
 export default {
-  components: {PropertySmallDetail, MaintenanceRequestForm},
+  components: {PropertySmallDetail},
   data() {
     return {
       clicked: false,
