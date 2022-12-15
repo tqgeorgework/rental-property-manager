@@ -25,6 +25,7 @@ CREATE TABLE property (
 	landlord_id int NOT NULL,
 	is_rented boolean NOT NULL DEFAULT false,
 	rent_status varchar(20) NOT NULL DEFAULT 'DUE',
+	due_day int NOT NULL DEFAULT 5,
 	CONSTRAINT CK_rent_status CHECK (rent_status IN ('PAID', 'DUE', 'OVERDUE')), 
 	CONSTRAINT PK_property PRIMARY KEY (property_id),
 	CONSTRAINT FK_landlord_id_to_user_id FOREIGN KEY (landlord_id) REFERENCES users (user_id),
@@ -32,7 +33,6 @@ CREATE TABLE property (
 	CONSTRAINT CK_bedrooms CHECK (bedrooms > 0),
 	CONSTRAINT CK_bathrooms CHECK (bathrooms > 0),
 	CONSTRAINT CK_sq_footage CHECK (sq_footage > 0)
-	
 );
 
 CREATE TABLE property_users (
